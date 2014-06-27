@@ -52,6 +52,25 @@ public class JsonGeneratorImplTest {
 
         assertEquals("{\"firstName\":\"John\",\"lastName\":\"Smith\",\"age\":25,\"address\":{\"streetAddress\":\"21 2nd Street\",\"city\":\"New York\",\"state\":\"NY\",\"postalCode\":\"10021\"},\"phoneNumber\":[{\"type\":\"home\",\"number\":\"212 555-1234\"},{\"type\":\"fax\",\"number\":\"646 555-4567\"}]}", new String(baos.toByteArray()));
     }
+    
+    @Test
+    public void generateChain() {
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        final JsonGenerator generator = Json.createGenerator(baos);
+        generator.writeStartObject().write("firstName", "John").writeEnd().close();
+        assertEquals("{\"firstName\":\"John\"}", new String(baos.toByteArray()));
+    }
+    
+    @Test
+    public void generateNonChain() {
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        final JsonGenerator generator = Json.createGenerator(baos);
+        generator.writeStartObject();
+        generator.write("firstName", "John");
+        generator.writeEnd();
+        generator.close();
+        assertEquals("{\"firstName\":\"John\"}", new String(baos.toByteArray()));
+    }
 
     @Test
     public void pretty() {

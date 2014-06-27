@@ -43,7 +43,7 @@ public class JsonGeneratorFactoryImpl implements JsonGeneratorFactory {
         if (pretty) {
             return new JsonPrettyGeneratorImpl(writer, cache);
         }
-        return new JsonGeneratorImpl<JsonGeneratorImpl<?>>(writer, cache);
+        return new JsonGeneratorFacade<JsonGeneratorImpl<?>>(writer, cache);
     }
 
     @Override

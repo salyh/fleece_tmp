@@ -29,11 +29,11 @@ public class JsonPrettyGeneratorImpl extends JsonGeneratorImpl<JsonPrettyGenerat
 
     private String indent; // should be final but writeEnd needs it not final, we could change write() to support indent
 
-    public JsonPrettyGeneratorImpl(final Writer writer, final ConcurrentMap<String, String> cache) {
+    JsonPrettyGeneratorImpl(final Writer writer, final ConcurrentMap<String, String> cache) {
         this(writer, null, false, "", cache);
     }
 
-    public JsonPrettyGeneratorImpl(final Writer writer, final JsonPrettyGeneratorImpl parent,
+    JsonPrettyGeneratorImpl(final Writer writer, final JsonPrettyGeneratorImpl parent,
                                    final boolean array, final String prefix,
                                    final ConcurrentMap<String, String> cache) {
         super(writer, parent, array, cache);

@@ -43,11 +43,11 @@ public class JsonGeneratorImpl<P extends JsonGeneratorImpl<?>> implements JsonGe
 
     protected boolean needComma = false;
 
-    public JsonGeneratorImpl(final Writer writer, final ConcurrentMap<String, String> cache) {
+    JsonGeneratorImpl(final Writer writer, final ConcurrentMap<String, String> cache) {
         this(writer, null, false, cache);
     }
 
-    public JsonGeneratorImpl(final Writer writer, final P parent, final boolean array,
+    JsonGeneratorImpl(final Writer writer, final P parent, final boolean array,
                              final ConcurrentMap<String, String> cache) {
         this.writer = writer;
         this.parent = parent;
