@@ -18,13 +18,17 @@
  */
 package org.apache.fleece.core;
 
-public class Strings implements JsonChars {
+import java.util.concurrent.ConcurrentHashMap;
+
+public final class Strings implements JsonChars {
     private static final BufferCache<StringBuilder> BUFFER_CACHE = new BufferCache<StringBuilder>(Integer.getInteger("org.apache.fleece.default-string-builder", 1024)) {
         @Override
         protected StringBuilder newValue(final int defaultSize) {
             return new StringBuilder(defaultSize);
         }
     };
+    
+    private static ConcurrentHashMap<Character, String> unicodeCache = new ConcurrentHashMap<Character, String>(Integer.getInteger("org.apache.fleece.default-unicode-cache-size", 64));
 
     private static final String UNICODE_PREFIX = "\\u";
     private static final String UNICODE_PREFIX_HELPER = "000";
@@ -32,17 +36,19 @@ public class Strings implements JsonChars {
     public static char asEscapedChar(final char current) {
         switch (current) {
             case 'r':
-                return '\r';
+                return CR;
             case 't':
-                return '\t';
+                return TAB;
             case 'b':
-                return '\b';
+                return BACKSPACE;
             case 'f':
-                return '\f';
+                return FORMFEED;
             case 'n':
-                return '\n';
-            case '"':
-                return '\"';
+                return EOL;
+            
+            //'"' and '\"' are identical, both are '\u0022', so this case is not neccessary
+            //case '"':
+              //  return '\"';
         }
         return current;
     }
@@ -54,6 +60,8 @@ public class Strings implements JsonChars {
                 final char c = value.charAt(i);
                 switch (c) {
                     case QUOTE:
+                        builder.append(ESCAPED_QUOTE);
+                        break;
                     case ESCAPE_CHAR:
                         builder.append(ESCAPE_CHAR).append(c);
                         break;
@@ -61,24 +69,24 @@ public class Strings implements JsonChars {
                         if (c < SPACE) { // we could do a single switch but actually we should rarely enter this if so no need to pay it
                             switch (c) {
                                 case EOL:
-                                    builder.append("\\n");
+                                    builder.append(ESCAPED_EOL);
                                     break;
-                                case '\r':
-                                    builder.append("\\r");
+                                case CR:
+                                    builder.append(ESCAPED_CR);
                                     break;
-                                case '\t':
-                                    builder.append("\\t");
+                                case TAB:
+                                    builder.append(ESCAPED_TAB);
                                     break;
-                                case '\b':
-                                    builder.append("\\b");
+                                case BACKSPACE:
+                                    builder.append(ESCAPED_BACKSPACE);
                                     break;
-                                case '\f':
-                                    builder.append("\\f");
+                                case FORMFEED:
+                                    builder.append(ESCAPED_FORMFEED);
                                     break;
                                 default:
                                     builder.append(toUnicode(c));
                             }
-                        } else if ((c >= '\u0080' && c < '\u00a0') || (c >= '\u2000' && c < '\u2100')) {
+                        } else if ((c >= U_007f && c <= U_00a0) || (c >= U_2000 && c < U_2100)) {
                             builder.append(toUnicode(c));
                         } else {
                             builder.append(c);
@@ -94,8 +102,21 @@ public class Strings implements JsonChars {
     }
 
     private static String toUnicode(final char c) {
-        final String hex = UNICODE_PREFIX_HELPER + Integer.toHexString(c);
-        return UNICODE_PREFIX + hex.substring(hex.length() - 4);
+        
+        String unicodeRepresentation = unicodeCache.get(c);
+        
+        if(unicodeRepresentation == null)
+        {
+            final String hex = UNICODE_PREFIX_HELPER + Integer.toHexString(c);
+            unicodeRepresentation = UNICODE_PREFIX + hex.substring(hex.length() - 4);
+            unicodeCache.putIfAbsent(c, unicodeRepresentation);
+            return unicodeRepresentation;
+        }
+        else
+        {
+            return unicodeRepresentation;
+        }
+        
     }
 
     private Strings() {

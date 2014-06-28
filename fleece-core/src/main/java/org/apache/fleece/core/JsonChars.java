@@ -50,6 +50,23 @@ public interface JsonChars {
     char EXP_LOWERCASE = 'e';
     char EXP_UPPERCASE = 'E';
     char ESCAPE_CHAR = '\\';
+    
+    char TAB = '\t';
+    char BACKSPACE = '\b';
+    char FORMFEED = '\f';
+    char CR = '\r';
+    
+    char U_007f = '\u007f';
+    char U_0080 = '\u0080';
+    char U_00a0 = '\u00a0';
+    char U_2000 = '\u2000';
+    char U_2100 = '\u2100';
 
     String NULL = "null";
+    String ESCAPED_EOL = String.valueOf(ESCAPE_CHAR+EOL);
+    String ESCAPED_TAB  = String.valueOf(ESCAPE_CHAR+TAB);
+    String ESCAPED_BACKSPACE = String.valueOf(ESCAPE_CHAR+BACKSPACE);
+    String ESCAPED_FORMFEED = String.valueOf(ESCAPE_CHAR+FORMFEED);
+    String ESCAPED_CR = String.valueOf(ESCAPE_CHAR+CR);
+    String ESCAPED_QUOTE = String.valueOf(ESCAPE_CHAR+QUOTE);
 }
