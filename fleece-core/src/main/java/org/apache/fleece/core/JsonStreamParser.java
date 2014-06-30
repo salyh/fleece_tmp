@@ -103,7 +103,7 @@ public class JsonStreamParser implements JsonChars, EscapedStringAwareJsonParser
                                 escaped = true;
                                 continue;
                             }
-                            if (!escape) {
+                            if (!escaped) {
                                 builder.append(current);
                             } else {
                                 builder.append(asEscapedChar(current));
@@ -123,7 +123,7 @@ public class JsonStreamParser implements JsonChars, EscapedStringAwareJsonParser
                         if (loadedChars[currentBufferIdx] != COMMA && loadedChars[currentBufferIdx] != END_OBJECT_CHAR && loadedChars[currentBufferIdx] != END_ARRAY_CHAR) {
                             throw new JsonParsingException("expecting end of structure or comma but got " + loadedChars[currentBufferIdx], createLocation());
                         }
-                        currentBufferIdx--; // we are alredy in place so to avoid offset when calling readUntilEvent() going back
+                        currentBufferIdx--; // we are already in place so to avoid offset when calling readUntilEvent() going back
                         event = Event.VALUE_STRING;
                     }
                     return true;
@@ -145,7 +145,7 @@ public class JsonStreamParser implements JsonChars, EscapedStringAwareJsonParser
                         valueBuilder.next();
                     }
                     currentValue = valueBuilder.readValue();
-                    currentBufferIdx--; // we are alredy in place so to avoid offset when calling readUntilEvent() going back
+                    currentBufferIdx--; // we are already in place so to avoid offset when calling readUntilEvent() going back
                     event = Event.VALUE_NUMBER;
                     return true;
                 } else if (loadedChars[currentBufferIdx] == TRUE_T) {
