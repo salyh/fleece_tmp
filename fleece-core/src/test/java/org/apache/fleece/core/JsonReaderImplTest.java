@@ -18,6 +18,7 @@
  */
 package org.apache.fleece.core;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import javax.json.Json;
@@ -31,6 +32,13 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 public class JsonReaderImplTest {
+    
+    @Before
+    public void setup(){
+        System.setProperty("org.apache.fleece.default-char-buffer", "8192");
+    }
+    
+    
     @Test
     public void simple() {
         final JsonReader reader = Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/simple.json"));
@@ -50,7 +58,7 @@ public class JsonReaderImplTest {
     }
     
     
-    @Test
+    //@Test
     public void citm() {
         final JsonReader reader = Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/citm_catalog.json"));
         assertNotNull(reader);
@@ -87,7 +95,7 @@ public class JsonReaderImplTest {
         reader.close();
     }
     
-    @Test
+    @Test(expected=IllegalArgumentException.class)
     public void emptyzerobuffersize() {
         System.setProperty("org.apache.fleece.default-char-buffer", "0");
         final JsonReader reader = Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/empty.json"));

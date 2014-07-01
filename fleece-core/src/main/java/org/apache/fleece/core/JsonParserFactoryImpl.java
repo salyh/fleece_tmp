@@ -48,17 +48,17 @@ public class JsonParserFactoryImpl implements JsonParserFactory {
 
     @Override
     public JsonParser createParser(final Reader reader) {
-        return new JsonStreamParser(reader, maxSize);
+        return new JsonSimpleStreamParser(reader, maxSize);
     }
 
     @Override
     public JsonParser createParser(final InputStream in) {
-        return new JsonStreamParser(in, maxSize);
+        return new JsonSimpleStreamParser(in, maxSize);
     }
 
     @Override
     public JsonParser createParser(final InputStream in, final Charset charset) {
-        return new JsonStreamParser(in, charset, maxSize);
+        return new JsonSimpleStreamParser(in, charset, maxSize);
     }
 
     @Override

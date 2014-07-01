@@ -437,7 +437,7 @@ public class JsonParserTest {
 
     @Test
     public void hasNext() {
-        final JsonParser parser = new JsonStreamParser(new ByteArrayInputStream("{}".getBytes()), 1000);
+        final JsonParser parser = new JsonSimpleStreamParser(new ByteArrayInputStream("{}".getBytes()), 1000);
         assertTrue(parser.hasNext());
         assertTrue(parser.hasNext());
         assertTrue(parser.hasNext());

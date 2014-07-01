@@ -34,11 +34,11 @@ public class JsonReaderImpl implements JsonReader {
     private final JsonReaderListenerFactory listenerFactory;
 
     public JsonReaderImpl(final InputStream in) {
-        this(new JsonStreamParser(in, JsonParserFactoryImpl.DEFAULT_MAX_SIZE), new JsonListenerFactory());
+        this(new JsonSimpleStreamParser(in, JsonParserFactoryImpl.DEFAULT_MAX_SIZE), new JsonListenerFactory());
     }
 
     public JsonReaderImpl(final Reader in) {
-        this(new JsonStreamParser(in, JsonParserFactoryImpl.DEFAULT_MAX_SIZE), new JsonListenerFactory());
+        this(new JsonSimpleStreamParser(in, JsonParserFactoryImpl.DEFAULT_MAX_SIZE), new JsonListenerFactory());
     }
 
     public JsonReaderImpl(final EscapedStringAwareJsonParser parser, final JsonReaderListenerFactory listenerFactory) {
@@ -266,10 +266,10 @@ public class JsonReaderImpl implements JsonReader {
                     return;
 
                 case END_ARRAY:
-                    throw new JsonParsingException("']', shouldn't occur", JsonStreamParser.location(parser));
+                    throw new JsonParsingException("']', shouldn't occur", JsonSimpleStreamParser.location(parser));
 
                 default:
-                    throw new JsonParsingException(next.name() + ", shouldn't occur", JsonStreamParser.location(parser));
+                    throw new JsonParsingException(next.name() + ", shouldn't occur", JsonSimpleStreamParser.location(parser));
             }
         }
     }
@@ -318,13 +318,13 @@ public class JsonReaderImpl implements JsonReader {
                     break;
 
                 case KEY_NAME:
-                    throw new JsonParsingException("array doesn't have keys", JsonStreamParser.location(parser));
+                    throw new JsonParsingException("array doesn't have keys", JsonSimpleStreamParser.location(parser));
 
                 case END_OBJECT:
-                    throw new JsonParsingException("'}', shouldn't occur", JsonStreamParser.location(parser));
+                    throw new JsonParsingException("'}', shouldn't occur", JsonSimpleStreamParser.location(parser));
 
                 default:
-                    throw new JsonParsingException(next.name() + ", shouldn't occur", JsonStreamParser.location(parser));
+                    throw new JsonParsingException(next.name() + ", shouldn't occur", JsonSimpleStreamParser.location(parser));
             }
         }
     }
