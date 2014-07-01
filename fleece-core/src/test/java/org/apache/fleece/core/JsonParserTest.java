@@ -373,7 +373,7 @@ public class JsonParserTest {
         parser.close();
     }
 
-    //@Test
+    @Test
     public void dosProtected() {
         // strings
         {
@@ -405,6 +405,9 @@ public class JsonParserTest {
             parser.close();
         }
 
+        System.out.println("OK");
+        
+        
         // spaces
         {
             final JsonParser parser = Json.createParserFactory(new HashMap<String, Object>() {{

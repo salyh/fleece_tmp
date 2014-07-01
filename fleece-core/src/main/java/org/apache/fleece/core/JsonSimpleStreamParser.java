@@ -42,8 +42,10 @@ import static org.apache.fleece.core.Strings.asEscapedChar;
 
 public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJsonParser {
 
+    private boolean log = true;
     private final BufferedReader reader;
-    // private final int maxStringSize;
+    private final int maxStringSize;
+    
 
     // current state
     private Event event = null;
@@ -57,10 +59,10 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
     private int column = 1;
     private int offset = 0;
 
-    //private boolean hasNext = true;
+
     private boolean constructingStringValue = false;
     private boolean stringValueIsKey = true;
-    //private boolean constructingNonStringValue = false;
+
     private int openObjects = 0;
     private int openArrays = 0;
     private boolean escaped=false;
@@ -68,8 +70,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
     public JsonSimpleStreamParser(final Reader reader, final int maxStringLength) {
         this.reader = new BufferedReader(reader, Integer.getInteger("org.apache.fleece.default-char-buffer", 8192));
 
-        // this.maxStringSize = maxStringLength < 0 ? loadedChars.length :
-        // maxStringLength;
+        this.maxStringSize = maxStringLength < 0 ? 8192 : maxStringLength;
         // System.out.println("maxStringSize: " + maxStringSize);
         // System.out.println("loadedChars length: " + loadedChars.length);
     }
@@ -90,11 +91,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
         
     }
 
-    /*private boolean isNumber() {
-        return isAsciiDigit(loadedChars[currentBufferIdx]) || loadedChars[currentBufferIdx] == DOT
-                || loadedChars[currentBufferIdx] == MINUS || loadedChars[currentBufferIdx] == PLUS
-                || loadedChars[currentBufferIdx] == EXP_LOWERCASE || loadedChars[currentBufferIdx] == EXP_UPPERCASE;
-    }*/
+    
 
     private static boolean isAsciiDigit(final char value) {
         return value >= ZERO && value <= NINE;
@@ -113,17 +110,13 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
     {
         if(constructingStringValue) 
         {
-         
+            if(currentValue.length() >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
             currentValue.append(escape?Strings.asEscapedChar(c):c);
         }
         return constructingStringValue;
     }
     
-    /*private boolean ifConstructingNonStringValueAdd(char c)
-    {
-        if(constructingNonStringValue) currentValue.append(c);
-        return constructingNonStringValue;
-    }*/
+   
 
     
     
@@ -131,7 +124,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
     {
         char c = (char) reader.read();
         
-        System.out.println("reading: "+c+" -> "+((int)c ));
+        if(log)System.out.println("reading: "+c+" -> "+((int)c ));
 
         if (c == -1) {
             //hasNext = false;
@@ -159,6 +152,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
     @Override
     public Event next() {
         
+        int dosCount =0;
         lastEvent = event;
         event= null;
 
@@ -171,10 +165,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                 case START_OBJECT_CHAR: {
                     
                     if(ifConstructingStringValueAdd(c)) continue;
-                    //if(constructingNonStringValue && currentValue.length()>0) throw new JsonParsingException("Unexpected character "+c, createLocation());
-                    //if(constructingNonStringValue && currentValue.length()==0) constructingNonStringValue=false;
                     
-                    //if(lastEvent == Event.START_OBJECT || lastEvent == Event.)
                     
                     if(lastSignificantChar != COMMA && lastSignificantChar != 0 && lastSignificantChar != START_ARRAY_CHAR&& lastSignificantChar != KEY_SEPARATOR)
                     {
@@ -195,7 +186,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                 case END_OBJECT_CHAR:
                     
                     if(ifConstructingStringValueAdd(c)) continue;
-                    //if(constructingNonStringValue ) throw new JsonParsingException("Unexpected character "+c, createLocation());
+                    
                   
                     if(lastSignificantChar == COMMA ||  lastSignificantChar == START_ARRAY_CHAR)
                     {
@@ -218,8 +209,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                 case START_ARRAY_CHAR:
                     
                     if(ifConstructingStringValueAdd(c)) continue;
-                    //if(constructingNonStringValue && currentValue.length()>0) throw new JsonParsingException("Unexpected character "+c, createLocation());
-                    //if(constructingNonStringValue && currentValue.length()==0) constructingNonStringValue=false;
+                    
                     
                     if(lastSignificantChar != KEY_SEPARATOR && lastSignificantChar != 0)
                     {
@@ -234,15 +224,13 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                     lastSignificantChar = c;
                     openArrays++;
                     event = Event.START_ARRAY;
-                    
-                  //possible start of nonstring value
-                    //constructingNonStringValue=true;  
+               
                     
                     break;
                 case END_ARRAY_CHAR:
                     
                     if(ifConstructingStringValueAdd(c)) continue;
-                    //if(constructingNonStringValue) throw new JsonParsingException("Unexpected character "+c, createLocation());
+                   
                   
                     if(lastSignificantChar == KEY_SEPARATOR || lastSignificantChar == START_OBJECT_CHAR)
                     {
@@ -271,14 +259,17 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                 case CR:
                 case SPACE:
                    if(ifConstructingStringValueAdd(c, escaped)) {
-                       System.out.print("  ESCAPED");
+                       if(log)System.out.print("  ESCAPED");
                        if(escaped) escaped=false;
                        continue;
                        
+                   }else
+                   {
+                       //dos check
+                       if(dosCount >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
+                       dosCount++;
                    }
-                    
-                    
-                    //if(constructingNonStringValue) throw new JsonParsingException("Unexpected character "+c, createLocation());
+                  
                     break;
                 case COMMA:
                     if(ifConstructingStringValueAdd(c)) continue;
@@ -305,25 +296,13 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                         stringValueIsKey = true;
                     }
                     
-                    //if(constructingNonStringValue && currentValue.length()>0) throw new JsonParsingException("Unexpected character "+c, createLocation());
-                    //if(constructingNonStringValue && currentValue.length()==0) constructingNonStringValue=false;
                     
-                    
-                    //
-                   // if (event != null && event != Event.KEY_NAME && event != Event.VALUE_STRING && event != Event.VALUE_NUMBER && event !=Event.VALUE_TRUE && event != Event.VALUE_FALSE && event !=Event.VALUE_NULL) {
-                    //     throw new JsonParsingException("unexpected comma", createLocation());
-                    // }
-                    
-                    //if(event == null) throw new JsonParsingException("unexpected comma", createLocation());
-                    
-                    //possible start of nonstring value
-                    //constructingNonStringValue=true;
                     
                     break;
                 case KEY_SEPARATOR:
                 {
                     if(ifConstructingStringValueAdd(c)) continue;
-                    //if(constructingNonStringValue) throw new JsonParsingException("Unexpected character "+c, createLocation());
+                   
                     
                     if(lastSignificantChar != QUOTE)
                     {
@@ -333,7 +312,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                     
                     if(lastEvent != Event.KEY_NAME)
                     {
-                        throw new JsonParsingException("Unexpected character "+c, createLocation());
+                        throw new JsonParsingException("Unexpected character "+c+" (lastevent "+lastEvent+")", createLocation());
                     }
                     
                     lastSignificantChar = c;
@@ -345,20 +324,14 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                     {
                         stringValueIsKey = true;
                     }
-                    
-                    
-                    //possible start of nonstring value
-                    //constructingNonStringValue=true;
+            
                     break;
                     
                     
                 }
                 case QUOTE: //must be escaped within a value
                 {
-                    //if(constructingNonStringValue && currentValue.length()>0) throw new JsonParsingException("Unexpected character "+c, createLocation());
-                    //if(constructingNonStringValue && currentValue.length()==0) constructingNonStringValue=false;
-                    
-      
+                  
                     if(lastSignificantChar != START_ARRAY_CHAR && lastSignificantChar != START_OBJECT_CHAR && lastSignificantChar != KEY_SEPARATOR && lastSignificantChar != COMMA&& lastSignificantChar != QUOTE)
                     {
                         throw new JsonParsingException("Unexpected character "+c, createLocation());
@@ -373,7 +346,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                     {
                         
                         if(escaped)
-                        {
+                        {if(currentValue.length() >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
                             currentValue.append(QUOTE);
                             escaped = false;
                             continue;
@@ -416,25 +389,17 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                 case '7':
                 case '8':
                 case '9':
-                //case PLUS:
+                
                 case MINUS:
-                //case DOT:
-                //case EXP_LOWERCASE:
-                //case EXP_UPPERCASE:
+               
                 case FALSE_F:       //false
-                //case FALSE_A:
-                //case FALSE_L:
-                //case FALSE_S:
-                //case FALSE_E:
+               
                 case TRUE_T:        //true
-                //case TRUE_R:
-                //case TRUE_U:
-                //case TRUE_E:
+              
                 case NULL_N:        //null  
-                //case NULL_U:
-                //case NULL_L:    
+                 
                     if(ifConstructingStringValueAdd(c)) continue;
-                    //if(ifConstructingNonStringValueAdd(c)) continue;
+                   
                     
                     currentValue.setLength(0);
                     
@@ -465,37 +430,52 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                                 
                                 
                             default: //number
+                                if(currentValue.length() >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
                                 currentValue.append(c);
-                                
+                                boolean noMoreSpecials = false;
+                                boolean endExpected = false;
                                 
                                 while(true)
                                 {
                                     
                                     reader.mark(10);
-                                    System.out.println("MARKED");
+                                    if(log)System.out.println("MARKED");
                                     char n = read();
-                                    
-                                    if(n == DOT || n == EXP_LOWERCASE || n == EXP_UPPERCASE)
-                                    {
-                                        
-                                    }
-                                    
-                                    if(n == SPACE || n == TAB || n == CR || n == EOL)
-                                    {
-                                        continue;
-                                    }
                                     
                                     if(n==COMMA || n == END_ARRAY_CHAR || n == END_OBJECT_CHAR)
                                     {
                                         reader.reset();
-                                        System.out.println("RESET");
+                                        if(log)System.out.println("RESET");
                                         offset--;
                                         column--;
                                         event = Event.VALUE_NUMBER;
                                         break;
                                     }
+                                    
+                                    //if(endExpected) throw new JsonParsingException("Unexpected literal "+n, createLocation());
+                                    
+                                    
+                                    if(n == DOT || n == EXP_LOWERCASE || n == EXP_UPPERCASE)
+                                    {
+                                        //if(noMoreSpecials) throw new JsonParsingException("Unexpected literal "+n, createLocation());
                                         
+                                        noMoreSpecials = true;
+                                    }
+                                    
+                                    if(n == SPACE || n == TAB || n == CR)
+                                    {
+                                        endExpected = true;
+                                        continue;
+                                    }
+                                    
+                                    if(n == EOL)
+                                    {
+                                       
+                                        continue;
+                                    }
+                                    
                                         
+                                    if(currentValue.length() >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());    
                                     currentValue.append(n);
                                     
                                 }
@@ -518,12 +498,14 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                     if(!constructingStringValue)throw new JsonParsingException("Unexpected character "+c, createLocation());
                     
                     if(escaped)
-                    {   System.out.println(" ESCAPEDESCAPED");
+                    {   if(log)System.out.println(" ESCAPEDESCAPED");
+                        
+                        if(currentValue.length() >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
                         currentValue.append(ESCAPE_CHAR);
                         escaped = false;
                     }
                     else
-                    {   System.out.println(" ESCAPECHAR");
+                    {   if(log)System.out.println(" ESCAPECHAR");
                         escaped = true;
                     }
                     
@@ -534,18 +516,10 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                     
                     throw new NoSuchElementException();
 
-              
-                // Event.KEY_NAME
-                // Event.VALUE_FALSE
-                // Event.VALUE_NULL
-                // Event.VALUE_NUMBER
-                // Event.VALUE_STRING
-                // Event.VALUE_TRUE
-
                 default:
                     if(ifConstructingStringValueAdd(c)) continue;
                     throw new JsonParsingException("Unexpected character "+c, createLocation());
-                    //if(constructingNonStringValue) throw new JsonParsingException("Unexpected character "+c, createLocation());
+                    
 
                 }
                 

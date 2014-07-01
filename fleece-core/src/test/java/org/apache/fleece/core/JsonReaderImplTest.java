@@ -58,7 +58,7 @@ public class JsonReaderImplTest {
     }
     
     
-    //@Test
+    @Test
     public void citm() {
         final JsonReader reader = Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/citm_catalog.json"));
         assertNotNull(reader);
