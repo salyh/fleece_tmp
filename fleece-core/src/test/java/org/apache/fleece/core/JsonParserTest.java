@@ -367,7 +367,11 @@ public class JsonParserTest {
         parser.next();
         assertEquals("\"", parser.getString());
         parser.next();
+        assertEquals("\\t", parser.getString());
+        parser.next();
         assertEquals("\t", parser.getString());
+        parser.next();
+        assertEquals("\\", parser.getString());
         parser.next();
         assertFalse(parser.hasNext());
         parser.close();
