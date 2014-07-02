@@ -360,6 +360,20 @@ public class JsonParserTest {
             
     }
 
+    /**
+     * 
+    "\"",
+    "\\",
+    "\/",
+    "\b",
+    "\f",
+    "\n",
+    "\r",
+    "\t",
+    "\u0044"
+     */
+    
+    
     @Test
     public void escaping() {
         final JsonParser parser = Json.createParser(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/escaping.json"));
@@ -367,11 +381,21 @@ public class JsonParserTest {
         parser.next();
         assertEquals("\"", parser.getString());
         parser.next();
-        assertEquals("\\t", parser.getString());
+        assertEquals("\\", parser.getString());
+        parser.next();
+        assertEquals("/", parser.getString());
+        parser.next();
+        assertEquals("\b", parser.getString());
+        parser.next();
+        assertEquals("\f", parser.getString());
+        parser.next();
+        assertEquals("\n", parser.getString());
+        parser.next();
+        assertEquals("\r", parser.getString());
         parser.next();
         assertEquals("\t", parser.getString());
         parser.next();
-        assertEquals("\\", parser.getString());
+        assertEquals("D", parser.getString());
         parser.next();
         assertFalse(parser.hasNext());
         parser.close();

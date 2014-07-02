@@ -42,7 +42,7 @@ import static org.apache.fleece.core.Strings.asEscapedChar;
 
 public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJsonParser {
 
-    private boolean log = false;
+    private boolean log = true;
     private final BufferedReader reader;
     private final int maxStringSize;
     
@@ -102,8 +102,29 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
         return new JsonLocationImpl(line, column, offset);
     }
     
-    private boolean ifConstructingStringValueAdd(char c)
+    private boolean ifConstructingStringValueAdd(char c) throws IOException
     {
+        if(escaped) {
+            
+            if(c == 'u')
+            {
+                char[] tmp = read(4);
+                
+                System.out.println((int)tmp[3]+"/"+(int)tmp[2]+"/"+(int)tmp[1]+"/"+(int)tmp[0]);
+                
+                int decimal = (((int)tmp[3])-48)*1+(((int)tmp[2])-48)*16+(((int)tmp[1])-48)*256+(((int)tmp[0])-48)*4096;
+                c = (char) decimal;
+                
+            }
+            else
+            {
+                c = asEscapedChar(c);
+            }
+            
+            
+            escaped=false;
+        }
+        
         return ifConstructingStringValueAdd(c, false);
     }
     
@@ -270,9 +291,9 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                 case TAB:
                 case CR:
                 case SPACE:
-                   if(ifConstructingStringValueAdd(c, escaped)) {
-                       if(log)System.out.println("  ESCAPED");
-                       if(escaped) escaped=false;
+                   if(ifConstructingStringValueAdd(c)) { //escaping
+                       //if(log)System.out.println("  ESCAPED");
+                       //if(escaped) escaped=false;
                        continue;
                        
                    }else
@@ -354,7 +375,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                   
                     if(lastSignificantChar != START_ARRAY_CHAR && lastSignificantChar != START_OBJECT_CHAR && lastSignificantChar != KEY_SEPARATOR && lastSignificantChar != COMMA&& lastSignificantChar != QUOTE)
                     {
-                        throw new JsonParsingException("Unexpected character "+c, createLocation());
+                        throw new JsonParsingException("Unexpected character "+c+ "(lastsignificantchar "+lastSignificantChar+")", createLocation());
                     }
                     
                     
