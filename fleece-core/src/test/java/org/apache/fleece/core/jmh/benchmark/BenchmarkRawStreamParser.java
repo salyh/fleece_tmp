@@ -4,19 +4,21 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 import javax.json.Json;
 import javax.json.JsonReader;
 import javax.json.JsonReaderFactory;
+import javax.json.stream.JsonParser;
+import javax.json.stream.JsonParser.Event;
+import javax.json.stream.JsonParserFactory;
 
 import org.openjdk.jmh.annotations.Benchmark;
-
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.infra.Blackhole;
-
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -25,21 +27,32 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 @State(Scope.Thread)
 // @BenchmarkMode(Mode.AverageTime)
 // @OutputTimeUnit(TimeUnit.SECONDS)
-public class BenchmarkMain {
+public class BenchmarkRawStreamParser {
 
-    public static void main(String[] args) throws RunnerException {
+    /*
+     * Benchmark                                            Mode   Samples        Score  Score error    Units
+o.a.f.c.j.b.BenchmarkRawStreamParser.actionLabel    thrpt         5    45209,278     2672,979    ops/s
+o.a.f.c.j.b.BenchmarkRawStreamParser.citmCatalog    thrpt         5       30,574        4,616    ops/s
+o.a.f.c.j.b.BenchmarkRawStreamParser.medium         thrpt         5    22989,442     2486,086    ops/s
+o.a.f.c.j.b.BenchmarkRawStreamParser.menu           thrpt         5   101780,209     5925,566    ops/s
+o.a.f.c.j.b.BenchmarkRawStreamParser.sgml           thrpt         5    61762,731     7852,292    ops/s
+o.a.f.c.j.b.BenchmarkRawStreamParser.webxml         thrpt         5    12566,670     1322,656    ops/s
+o.a.f.c.j.b.BenchmarkRawStreamParser.widget         thrpt         5    47033,145     4527,860    ops/s
+     */
 
-        Options opt = new OptionsBuilder().include(".*Raw.*").forks(1).warmupIterations(3)
-                .measurementIterations(5).build();
-
-        new Runner(opt).run();
-    }
-
-    private final JsonReaderFactory readerFactory = Json.createReaderFactory(null);
+    private final JsonParserFactory parserFactory = Json.createParserFactory(Collections.EMPTY_MAP);
 
     private Object parse(InputStream stream) throws Exception {
-        JsonReader reader = readerFactory.createReader(stream);
-        return reader.readObject();
+        JsonParser parser = parserFactory.createParser(stream);
+        
+        while(parser.hasNext())
+        {
+            Event e = parser.next();
+            
+            //do nothing more
+        }
+        
+        return parser;
     }
 
     @Benchmark
