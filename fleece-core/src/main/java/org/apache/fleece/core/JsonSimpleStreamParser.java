@@ -492,9 +492,9 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                             default: //number
                                 if(currentValue.length() >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
                                 currentValue.append(c);
-                                boolean noMoreSpecials = false;
+                                
                                 boolean endExpected = false;
-                                boolean zeropassed = c=='0';
+                                //boolean zeropassed = c=='0';
                                 boolean dotpassed = false;
                                 boolean epassed = false;
                                 char last = c;
@@ -549,11 +549,16 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                                         throw new JsonParsingException("unexpected character "+n, createLocation());
                                     }
                                     
+                                    //if(last == '0' && n != DOT && !dotpassed) throw new JsonParsingException("unexpected character "+n, createLocation());
+                                    
+                                   
+                                    
                                     if(n==DOT) {
                                         
                                         if(dotpassed) throw new JsonParsingException("more than one dot", createLocation());
                                         
                                         dotpassed=true;
+                                       
                                     }
                                     
                                     if(n==EXP_LOWERCASE || n==EXP_UPPERCASE) {
@@ -563,8 +568,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                                         epassed=true;
                                     }
                                   
-                                    
-                                        
+                                         
                                     if(currentValue.length() >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());    
                                     currentValue.append(n);
                                     last = n;

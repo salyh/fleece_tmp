@@ -22,20 +22,18 @@ import javax.json.JsonException;
 import javax.json.stream.JsonLocation;
 import javax.json.stream.JsonParser;
 import javax.json.stream.JsonParsingException;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
-import java.util.Arrays;
 
 import static org.apache.fleece.core.Strings.asEscapedChar;
 
 public class JsonStreamParser implements JsonChars, EscapedStringAwareJsonParser {
-    private static final BufferCache<char[]> BUFFER_CACHE = new BufferCache<char[]>(Integer.getInteger(
-            "org.apache.fleece.default-char-buffer", 8192) /*BufferedReader.defaultCharBufferSize*/) {
+    private static final BufferCache<char[]> BUFFER_CACHE = new BufferCache<char[]>(
+            Integer.getInteger("org.apache.fleece.default-char-buffer", 8192) /*BufferedReader.defaultCharBufferSize*/) {
         @Override
         protected char[] newValue(final int defaultSize) {
             return new char[defaultSize];
@@ -64,10 +62,8 @@ public class JsonStreamParser implements JsonChars, EscapedStringAwareJsonParser
 
     public JsonStreamParser(final Reader reader, final int maxStringLength) {
         this.reader = reader;
-        this.loadedChars = new char[Integer.getInteger("org.apache.fleece.default-char-buffer", 8192)];
+        this.loadedChars = BUFFER_CACHE.getCache();
         this.maxStringSize = maxStringLength < 0 ? loadedChars.length : maxStringLength;
-        System.out.println("maxStringSize: " + maxStringSize);
-        System.out.println("loadedChars length: " + loadedChars.length);
     }
 
     public JsonStreamParser(final InputStream stream, final int maxStringLength) {
@@ -80,9 +76,6 @@ public class JsonStreamParser implements JsonChars, EscapedStringAwareJsonParser
 
     @Override
     public boolean hasNext() {
-        System.out.println("hasNext()");
-
-
         if (event != null) {
             return loadedChars[currentBufferIdx] != EOF;
         }
@@ -90,33 +83,20 @@ public class JsonStreamParser implements JsonChars, EscapedStringAwareJsonParser
         try {
             do {
                 readUntilEvent();
-                System.out.println("event->"+loadedChars[currentBufferIdx]+"("+(int)loadedChars[currentBufferIdx]+")on "+currentBufferIdx+"/"+offset);
                 if (loadedChars[currentBufferIdx] == QUOTE) {
-                    System.out.println("    quote detected on"+currentBufferIdx+"/"+offset);
-                    
-                    
-                    
-                    valueBuilder.reset(0); // actually offset = 1 butreset increments idx
+                    valueBuilder.reset(0); // actually offset = 1 but reset increments idx
                     boolean escape = false;
 
-                    while (nextChar() != EOF &&loadedChars[currentBufferIdx] != QUOTE && currentBufferIdx <valueBuilder.maxEnd) {
-
-                        System.out.println(""+loadedChars[currentBufferIdx]);
-
+                    while (nextChar() != EOF && loadedChars[currentBufferIdx] != QUOTE && currentBufferIdx < valueBuilder.maxEnd) {
                         if (loadedChars[currentBufferIdx] == ESCAPE_CHAR) {
                             read();
                             escape = true;
                         }
                         valueBuilder.next();
-
                     }
-
-                    System.out.println("    valueBuilder.maxEnd"+valueBuilder.maxEnd);
-                    System.out.println("    going to read value"+currentValue+" on "+currentBufferIdx+"/"+offset);
                     currentValue = valueBuilder.readValue();
-                    System.out.println("    -->-->VALUEis::"+currentValue+" on "+currentBufferIdx+"/"+offset);
 
-                    if (escape) { // this induces an overhead butthat's not that often normally
+                    if (escape) { // this induces an overhead but that's not that often normally
                         final StringBuilder builder = new StringBuilder(currentValue.length());
                         boolean escaped = false;
                         for (final char current : currentValue.toCharArray()) {
@@ -124,7 +104,7 @@ public class JsonStreamParser implements JsonChars, EscapedStringAwareJsonParser
                                 escaped = true;
                                 continue;
                             }
-                            if (!escaped) {
+                            if (!escape) {
                                 builder.append(current);
                             } else {
                                 builder.append(asEscapedChar(current));
@@ -137,20 +117,14 @@ public class JsonStreamParser implements JsonChars, EscapedStringAwareJsonParser
                         escapedValue = null;
                     }
 
-                    readUntilEvent(); // we need to check if next charis a ':' to know it is a key
+                    readUntilEvent(); // we need to check if next char is a ':' to know it is a key
                     if (loadedChars[currentBufferIdx] == KEY_SEPARATOR) {
-                        System.out.println("    key_separator detectedon "+currentBufferIdx+"/"+offset);
                         event = Event.KEY_NAME;
                     } else {
-                        if (loadedChars[currentBufferIdx] != COMMA &&loadedChars[currentBufferIdx] != END_OBJECT_CHAR &&loadedChars[currentBufferIdx] != END_ARRAY_CHAR) {
-                            System.out.println(currentBufferIdx+"/"+offset);
-                            System.out.println(lastEvent);
-                            System.out.println(new String(Arrays.copyOfRange(loadedChars, Math.max(0,currentBufferIdx-30), currentBufferIdx)));
-                            System.out.println(createLocation());
-                            System.out.println(new String(loadedChars));
-                            throw new JsonParsingException("expectingend of structure or comma but got " + loadedChars[currentBufferIdx],createLocation());
+                        if (loadedChars[currentBufferIdx] != COMMA && loadedChars[currentBufferIdx] != END_OBJECT_CHAR && loadedChars[currentBufferIdx] != END_ARRAY_CHAR) {
+                            throw new JsonParsingException("expecting end of structure or comma but got " + loadedChars[currentBufferIdx], createLocation());
                         }
-                        currentBufferIdx--; // we are alredy in placeso to avoid offset when calling readUntilEvent() going back
+                        currentBufferIdx--; // we are alredy in place so to avoid offset when calling readUntilEvent() going back
                         event = Event.VALUE_STRING;
                     }
                     return true;
@@ -167,45 +141,42 @@ public class JsonStreamParser implements JsonChars, EscapedStringAwareJsonParser
                     event = Event.END_ARRAY;
                     return true;
                 } else if (isNumber()) {
-                    System.out.println("    number detected");
-                    valueBuilder.reset(-1); // reset will increment tocheck overflow
-                    while (nextChar() != EOF && isNumber() &&currentBufferIdx < valueBuilder.maxEnd) {
+                    valueBuilder.reset(-1); // reset will increment to check overflow
+                    while (nextChar() != EOF && isNumber() && currentBufferIdx < valueBuilder.maxEnd) {
                         valueBuilder.next();
                     }
                     currentValue = valueBuilder.readValue();
-                    System.out.println("    number::value::"+currentValue);
-                    currentBufferIdx--; // we are alredy in place soto avoid offset when calling readUntilEvent() going back
+                    currentBufferIdx--; // we are alredy in place so to avoid offset when calling readUntilEvent() going back
                     event = Event.VALUE_NUMBER;
                     return true;
                 } else if (loadedChars[currentBufferIdx] == TRUE_T) {
-                    if (read() != TRUE_R || read() != TRUE_U || read()!= TRUE_E) {
-                        throw new JsonParsingException("trueexpected", createLocation());
+                    if (read() != TRUE_R || read() != TRUE_U || read() != TRUE_E) {
+                        throw new JsonParsingException("true expected", createLocation());
                     }
                     event = Event.VALUE_TRUE;
                     return true;
                 } else if (loadedChars[currentBufferIdx] == FALSE_F) {
-                    if (read() != FALSE_A || read() != FALSE_L ||read() != FALSE_S || read() != FALSE_E) {
-                        throw new JsonParsingException("falseexpected", createLocation());
+                    if (read() != FALSE_A || read() != FALSE_L || read() != FALSE_S || read() != FALSE_E) {
+                        throw new JsonParsingException("false expected", createLocation());
                     }
                     event = Event.VALUE_FALSE;
                     return true;
                 } else if (loadedChars[currentBufferIdx] == NULL_N) {
-                    if (read() != NULL_U || read() != NULL_L || read()!= NULL_L) {
-                        throw new JsonParsingException("nullexpected", createLocation());
+                    if (read() != NULL_U || read() != NULL_L || read() != NULL_L) {
+                        throw new JsonParsingException("null expected", createLocation());
                     }
-                    System.out.println("null event on "+offset);
                     event = Event.VALUE_NULL;
                     return true;
                 } else if (loadedChars[currentBufferIdx] == EOF) {
                     return false;
                 } else if (loadedChars[currentBufferIdx] == COMMA) {
-                    System.out.println("    comma parse on"+currentBufferIdx+"/"+offset);
-                    if (event != null && event != Event.KEY_NAME &&event != Event.VALUE_STRING && event != Event.VALUE_NUMBER && event !=Event.VALUE_TRUE && event != Event.VALUE_FALSE && event !=Event.VALUE_NULL) {
-                        throw new JsonParsingException("unexpectedcomma", createLocation());
+                    if (event != null && event != Event.KEY_NAME && event != Event.VALUE_STRING
+                            && event != Event.VALUE_NUMBER && event != Event.VALUE_TRUE
+                            && event != Event.VALUE_FALSE && event != Event.VALUE_NULL) {
+                        throw new JsonParsingException("unexpected comma", createLocation());
                     }
-
-                }else {
-                    throw new JsonParsingException("unexpectedcharacter: '" + loadedChars[currentBufferIdx] + "'",createLocation());
+                } else {
+                    throw new JsonParsingException("unexpected character: '" + loadedChars[currentBufferIdx] + "'", createLocation());
                 }
             } while (true);
         } catch (final IOException e) {
@@ -213,14 +184,9 @@ public class JsonStreamParser implements JsonChars, EscapedStringAwareJsonParser
         }
     }
 
-    private StringBuilder savePreviousStringBeforeOverflow(int start,
-StringBuilder previousParts) {
-        System.out.println("save state"+start+"/"+(previousParts==null?"null":""+previousParts.length()));
+    private StringBuilder savePreviousStringBeforeOverflow(int start, StringBuilder previousParts) {
         final int length = currentBufferIdx - start;
-        previousParts = (previousParts == null ? new
-StringBuilder(length * 2) : previousParts).append(loadedChars, start,
-length);
-        System.out.println("previousParts->"+previousParts);
+        previousParts = (previousParts == null ? new StringBuilder(length * 2) : previousParts).append(loadedChars, start, length);
         return previousParts;
     }
 
@@ -258,12 +224,9 @@ length);
             read();
             read++;
         }
-        while (loadedChars[currentBufferIdx] != EOF && read <loadedChars.length); // don't accept more space than buffer size toavoid DoS
-
-        System.out.println("skipped not event chars: "+read);
-
+        while (loadedChars[currentBufferIdx] != EOF && read < loadedChars.length); // don't accept more space than buffer size to avoid DoS
         if (read == loadedChars.length) {
-            //throw new JsonParsingException("Too much spaces (>" +loadedChars.length + ")", createLocation());
+            throw new JsonParsingException("Too much spaces (>" + loadedChars.length + ")", createLocation());
         }
     }
 
@@ -282,26 +245,20 @@ length);
             column--;
             return EOF;
         }
-        System.out.println("READ: "+loadedChars[currentBufferIdx]+"("+(int)loadedChars[currentBufferIdx]+")");
         return loadedChars[currentBufferIdx];
     }
 
     private int incr() {
-        System.out.println("incremented counters from"+offset+"/"+column+"/"+currentBufferIdx);
         offset++;
         column++;
         currentBufferIdx++;
-        System.out.println("incremented counters to"+offset+"/"+column+"/"+currentBufferIdx);
         return currentBufferIdx;
     }
 
     private boolean overflowIfNeeded() throws IOException {
-        System.out.println("check overflowIfNeeded()"+currentBufferIdx+"/"+availableLength);
         if (currentBufferIdx >= availableLength) {
             availableLength = reader.read(loadedChars, 0, loadedChars.length);
-
             currentBufferIdx = 0;
-            System.out.println("    !overflowed"+currentBufferIdx+"/"+availableLength);
             if (availableLength <= 0) { // 0 or -1 typically
                 loadedChars[0] = EOF;
                 return true;
@@ -312,13 +269,11 @@ length);
 
     @Override
     public Event next() {
-        System.out.println("next() ");
         if (event == null) {
             hasNext();
         }
         lastEvent = event;
         event = null;
-        System.out.println("next() return " + lastEvent);
         return lastEvent;
     }
 
@@ -332,24 +287,24 @@ length);
 
     @Override
     public boolean isIntegralNumber() {
-
+        
         if (lastEvent != Event.VALUE_NUMBER) {
-            throw new IllegalStateException(event + " doesn't supportisIntegralNumber()");
+            throw new IllegalStateException(event + " doesn't support isIntegralNumber()");
         }
-
+        
         for (int i = 0; i < currentValue.length(); i++) {
             if (!isAsciiDigit(currentValue.charAt(i))) {
                 return false;
             }
         }
-
+        
         return true;
     }
 
     @Override
     public int getInt() {
         if (lastEvent != Event.VALUE_NUMBER) {
-            throw new IllegalStateException(event + " doesn't supportgetInt()");
+            throw new IllegalStateException(event + " doesn't support getInt()");
         }
         return Integer.parseInt(currentValue);
     }
@@ -357,7 +312,7 @@ length);
     @Override
     public long getLong() {
         if (lastEvent != Event.VALUE_NUMBER) {
-            throw new IllegalStateException(event + " doesn't supporgetLong()");
+            throw new IllegalStateException(event + " doesn't support getLong()");
         }
         return Long.parseLong(currentValue);
     }
@@ -403,71 +358,37 @@ length);
         private StringBuilder previousParts = null;
 
         public void next() {
-            System.out.println("ValueBuilder: next()");
             if (incr() >= availableLength) { // overflow case
-                System.out.println("    next overflow case "+start+"/"+maxEnd);
-                previousParts =savePreviousStringBeforeOverflow(start, previousParts);
+                previousParts = savePreviousStringBeforeOverflow(start, previousParts);
                 start = 0;
                 maxEnd = maxStringSize;
-            }else
-            {
-                System.out.println("    next no overflow case"+start+"/"+maxEnd);
             }
         }
 
         public String readValue() {
-            System.out.println("ValueBuilder: readValue()");
             if (loadedChars[currentBufferIdx] == EOF) {
-                throw new JsonParsingException("Can't read string",createLocation());
+                throw new JsonParsingException("Can't read string", createLocation());
             }
-
-            System.out.println("    currentBufferIdx/start"+currentBufferIdx+"/"+start);
 
             final int length = currentBufferIdx - start;
             if (length >= maxStringSize) {
-                throw new JsonParsingException("String too long",createLocation());
+                throw new JsonParsingException("String too long", createLocation());
             }
-
-            System.out.println("    start/length "+start+"/"+length);
 
             final String currentValue = new String(loadedChars, start, length);
             if (previousParts != null && previousParts.length() > 0) {
-
-                System.out.println("    found prev parts: "+previousParts);
-
                 return previousParts.append(currentValue).toString();
-            }else
-            {
-                System.out.println("    no prev parts");
             }
             return currentValue;
         }
 
         public void reset(final int offset) {
-
-            System.out.println("ValueBuilder: reset("+offset+")");
-            System.out.println("    avail length "+availableLength);
-
-            int inc = incr();
-
-            System.out.println("    inc "+inc);
-            System.out.println("    currentBufferIdx "+currentBufferIdx);
-            System.out.println("    old values "+start+"/"+maxEnd);
-
-            if (inc < availableLength) { // direct overflow case
+            if (incr() < availableLength) { // direct overflow case
                 start = currentBufferIdx + offset;
                 maxEnd = start + maxStringSize;
-                System.out.println("    direct overflow case"+start+"/"+maxEnd);
-            } else if (inc>availableLength){
+            } else {
                 maxEnd = maxStringSize - (maxEnd - start);
                 start = 0;
-                System.out.println("    no overflow case "+start+"/"+maxEnd);
-            } else
-            {
-                //inc == availablelength
-                maxEnd = maxStringSize - (maxEnd - start);
-                start = 0;
-                System.out.println("    no overflow case/identical"+start+"/"+maxEnd);
             }
             if (previousParts != null) {
                 previousParts.setLength(0);

@@ -598,5 +598,21 @@ public class JsonParserTest {
         new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail19.json")).read();
     }
     
+    //@Test(expected = JsonParsingException.class)
+    public void fail20() {
+        
+        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail20.json")).read();
+    }
     
+    @Test(expected = JsonParsingException.class)
+    public void fail21() {
+        
+        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail21.json")).read();
+    }
+    
+    @Test(expected = JsonParsingException.class)
+    public void fail22() {
+        
+        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail22.json")).read();
+    }
 }
