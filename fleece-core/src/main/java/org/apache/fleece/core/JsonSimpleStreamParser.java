@@ -18,15 +18,7 @@
  */
 package org.apache.fleece.core;
 
-import javax.json.JsonException;
-import javax.json.stream.JsonLocation;
-import javax.json.stream.JsonParser;
-import javax.json.stream.JsonParsingException;
-import javax.json.stream.JsonParser.Event;
-
-import com.sun.org.apache.xerces.internal.impl.dv.ValidatedInfo;
-
-import sun.org.mozilla.javascript.internal.ast.WithStatement;
+import static org.apache.fleece.core.Strings.asEscapedChar;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,14 +27,16 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
-import java.util.Arrays;
 import java.util.NoSuchElementException;
 
-import static org.apache.fleece.core.Strings.asEscapedChar;
+import javax.json.JsonException;
+import javax.json.stream.JsonLocation;
+import javax.json.stream.JsonParser;
+import javax.json.stream.JsonParsingException;
 
 public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJsonParser {
 
-    private boolean log = true;
+    private boolean log = false;
     private final BufferedReader reader;
     private final int maxStringSize;
     
