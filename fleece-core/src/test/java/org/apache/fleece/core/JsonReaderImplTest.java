@@ -53,7 +53,25 @@ public class JsonReaderImplTest {
         assertNotNull(array);
         assertEquals(2, array.size());
         assertEquals(1, array.getInt(0));
-        assertEquals(2, array.getInt(1));
+        assertEquals(-2, array.getInt(1));
+        reader.close();
+    }
+    
+    @Test
+    public void special() {
+        final JsonReader reader = Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/special.json"));
+        assertNotNull(reader);
+        final JsonObject object = reader.readObject();
+        assertNotNull(object);
+        /*assertEquals(3, object.size());
+        assertEquals("b", object.getString("a"));
+        assertEquals(4, object.getInt("c"));
+        assertThat(object.get("d"), instanceOf(JsonArray.class));
+        final JsonArray array = object.getJsonArray("d");
+        assertNotNull(array);
+        assertEquals(2, array.size());
+        assertEquals(1, array.getInt(0));
+        assertEquals(2, array.getInt(1));*/
         reader.close();
     }
     
