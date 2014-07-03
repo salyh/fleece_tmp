@@ -34,18 +34,39 @@ import javax.json.stream.JsonLocation;
 import javax.json.stream.JsonParser;
 import javax.json.stream.JsonParsingException;
 
-public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJsonParser {
-
-    private boolean log =false;
-    private final BufferedReader reader;
-    private final int maxStringSize;
+public class JsonSimpleStreamParser_Opt1 implements JsonChars, EscapedStringAwareJsonParser {
+    
+    /**
+     * Benchmark                                            Mode   Samples        Score  Score error    Units
+o.a.f.c.j.b.BenchmarkRawStreamParser.actionLabel    thrpt         5    75259,919     2189,018    ops/s
+o.a.f.c.j.b.BenchmarkRawStreamParser.citmCatalog    thrpt         5       64,529        1,185    ops/s
+o.a.f.c.j.b.BenchmarkRawStreamParser.medium         thrpt         5    35598,657     2924,714    ops/s
+o.a.f.c.j.b.BenchmarkRawStreamParser.menu           thrpt         5   144594,629     1431,270    ops/s
+o.a.f.c.j.b.BenchmarkRawStreamParser.sgml           thrpt         5    88563,935     1980,304    ops/s
+o.a.f.c.j.b.BenchmarkRawStreamParser.webxml         thrpt         5    20035,152      734,584    ops/s
+o.a.f.c.j.b.BenchmarkRawStreamParser.widget         thrpt         5    75538,671      529,913    ops/s
+     */
+  
+    
+    //private boolean log = false;
+    //private final BufferedReader reader;
+    private boolean reread;
+    private byte unread;
+    private  InputStream reader1;
+    private final byte[] buffer = new byte[8192];
+    private int avail=0;
+    private int pointer=0;
+    
+    private  int maxStringSize;
     
 
     // current state
     private Event event = null;
     private Event lastEvent = null;
     private int lastSignificantChar = -1;
-    private StringBuilder currentValue = new StringBuilder();
+    //private StringBuilder currentValue = new StringBuilder();
+    private char[] currentValue ;
+    private int valueLength=0;
     //private String escapedValue = null;
 
     // location
@@ -62,20 +83,48 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
     private int openArrays = 0;
     private boolean escaped=false;
 
-    public JsonSimpleStreamParser(final Reader reader, final int maxStringLength) {
-        this.reader = new BufferedReader(reader, Integer.getInteger("org.apache.fleece.default-char-buffer", 8192));
+    public JsonSimpleStreamParser_Opt1(final Reader reader, final int maxStringLength) {
+        //this.reader = new BufferedReader(reader, Integer.getInteger("org.apache.fleece.default-char-buffer", 8192));
 
-        this.maxStringSize = maxStringLength < 0 ? 8192 : maxStringLength;
+        //this.reader1 = reader;
+        
+        //this.maxStringSize = maxStringLength < 0 ? 8192 : maxStringLength;
+        
+       //currentValue =  new char[maxStringSize];
         // System.out.println("maxStringSize: " + maxStringSize);
         // System.out.println("loadedChars length: " + loadedChars.length);
     }
 
-    public JsonSimpleStreamParser(final InputStream stream, final int maxStringLength) {
-        this(new InputStreamReader(stream), maxStringLength);
+    public JsonSimpleStreamParser_Opt1(final InputStream stream, final int maxStringLength) {
+        this.reader1 = stream;
+        
+        this.maxStringSize = maxStringLength < 0 ? 8192 : maxStringLength;
+        
+       currentValue =  new char[maxStringSize];
     }
 
-    public JsonSimpleStreamParser(final InputStream in, final Charset charset, final int maxStringLength) {
-        this(new InputStreamReader(in, charset), maxStringLength);
+    public JsonSimpleStreamParser_Opt1(final InputStream in, final Charset charset, final int maxStringLength) {
+        //this(new InputStreamReader(in, charset), maxStringLength);
+    }
+    
+    
+    private void appendValue(char c)
+    {
+        //currentValue.append(c);
+        currentValue[valueLength]=c;
+        valueLength++;
+    }
+    
+    private void resetValue()
+    {
+        valueLength=0;
+        //currentValue.setLength(0);
+    }
+    
+    private String getValue()
+    {
+        //return currentValue.toString();
+        return new String(currentValue,0,valueLength);
     }
 
     @Override
@@ -104,7 +153,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
             {
                 char[] tmp = read(4);
                 
-                if(log)System.out.println((int)tmp[3]+"/"+(int)tmp[2]+"/"+(int)tmp[1]+"/"+(int)tmp[0]);
+                //if(log)System.out.println((int)tmp[3]+"/"+(int)tmp[2]+"/"+(int)tmp[1]+"/"+(int)tmp[0]);
                 
                 int decimal = (((int)tmp[3])-48)*1+(((int)tmp[2])-48)*16+(((int)tmp[1])-48)*256+(((int)tmp[0])-48)*4096;
                 c = (char) decimal;
@@ -126,29 +175,69 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
     {
         if(constructingStringValue) 
         {
-            if(currentValue.length() >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
-            currentValue.append(escape?Strings.asEscapedChar(c):c);
+            if(valueLength >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
+            
+            appendValue(escape?Strings.asEscapedChar(c):c);
+            
         }
         return constructingStringValue;
     }
     
    
-
+    private void unreadOne()
+    {
+        reread=true;
+    }
+    
+    private void mark()
+    {
+        
+        if(pointer >= buffer.length)
+        {
+            //??
+        }
+        else
+        unread = buffer[pointer];
+    }
     
     
     private char read() throws IOException
     {
-        char c = (char) reader.read();
-        
-        if(log)System.out.println("reading: "+c+" -> "+((int)c ));
-
-        if (c == -1) {
-            //hasNext = false;
-            throw new NoSuchElementException();
+        if(reread)
+        {
+            reread=false;
+            return  (char) (unread & 0xFF);
         }
+        
+        
+        if(avail<=0)
+        {
+            pointer = 0;
+            //fill buffer
+            avail = reader1.read(buffer, 0, buffer.length);
+            
+            if(avail <=0 ) throw new NoSuchElementException();
+            
+        }
+        
+        //char c = (char) reader.read();
+        
+        //if(log)System.out.println("reading: "+c+" -> "+((int)c ));
 
+        //if (c == -1) {
+            //hasNext = false;
+          //  throw new NoSuchElementException();
+        //}
+
+       
+        
+        char c =(char) (buffer[pointer]& 0xFF);
+       
+        
         offset++;
         column++;
+        pointer++;
+        avail--;
         
         return c;
     }
@@ -223,7 +312,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
         lastEvent = event;
         event= null;
         
-        currentValue.setLength(0);
+        resetValue();
 
         try {
             while (true) {
@@ -235,7 +324,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                     
                     if(ifConstructingStringValueAdd(c)) continue;
                     
-                    if(log)System.out.println(" LASIC "+lastSignificantChar);
+                    //if(log)System.out.println(" LASIC "+lastSignificantChar);
                     
                     if(lastSignificantChar == -2 || ( lastSignificantChar != -1 && (char)lastSignificantChar != KEY_SEPARATOR && (char)lastSignificantChar != COMMA && (char)lastSignificantChar != START_ARRAY_CHAR))
                     {
@@ -245,7 +334,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                     
                     stringValueIsKey = true;
                     withinArray = false;
-                    if(log)System.out.println(" VAL_IS_KEY");
+                    //if(log)System.out.println(" VAL_IS_KEY");
                     
                     lastSignificantChar = c;
                     openObjects++;
@@ -317,7 +406,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                 case CR:
                 case SPACE:
                    if(ifConstructingStringValueAdd(c)) { //escaping
-                       //if(log)System.out.println("  ESCAPED");
+                       ////if(log)System.out.println("  ESCAPED");
                        //if(escaped) escaped=false;
                        continue;
                        
@@ -342,7 +431,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                     lastSignificantChar = c;
                     
                     stringValueIsKey = true;
-                    if(log)System.out.println(" VAL_IS_KEY");
+                    //if(log)System.out.println(" VAL_IS_KEY");
                     
                     break;
                 case KEY_SEPARATOR:
@@ -361,7 +450,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                     lastSignificantChar = c;
                     
                     stringValueIsKey = false;
-                    if(log)System.out.println(" VAL_IS_VALUE");
+                    //if(log)System.out.println(" VAL_IS_VALUE");
                     
                     break;
                     
@@ -383,8 +472,9 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                         
                         if(escaped)
                         {
-                            if(currentValue.length() >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
-                            currentValue.append(QUOTE);
+                            if(valueLength >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
+                            appendValue(QUOTE);
+                           
                             escaped = false;
                             continue;
                         }
@@ -396,7 +486,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                             {
                                 event = Event.KEY_NAME;
                                 stringValueIsKey = false;
-                                if(log)System.out.println(" VAL_IS_VALUE");
+                                //if(log)System.out.println(" VAL_IS_VALUE");
                             }else
                             {
                                 
@@ -425,7 +515,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                         }
                         
                         //string value start
-                        currentValue.setLength(0); //clear string builder
+                        resetValue();
                         constructingStringValue = true;
                         break;
                     }
@@ -461,7 +551,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                    
                     lastSignificantChar = -2;
                     
-                    currentValue.setLength(0);
+                    resetValue();
                     
                     if(lastSignificantChar != QUOTE)
                     {
@@ -490,8 +580,9 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                                 
                                 
                             default: //number
-                                if(currentValue.length() >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
-                                currentValue.append(c);
+                                if(valueLength >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
+                                appendValue(c);
+                           
                                 
                                 boolean endExpected = false;
                                 //boolean zeropassed = c=='0';
@@ -504,18 +595,18 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                                 {
                                     i++;
                                     
-                                    reader.mark(10);
-                                    if(log)System.out.println(" >>>MARKED");
+                                    //reader.mark(10);
+                                    mark();
+                                    //if(log)System.out.println(" >>>MARKED");
                                     char n = read();
                                     
                                     
                                     
                                     if(n==COMMA || n == END_ARRAY_CHAR || n == END_OBJECT_CHAR)
                                     {
-                                        reader.reset();
-                                        if(log)System.out.println(" <<<RESET");
-                                        offset--;
-                                        column--;
+                                        unreadOne();
+                                        //if(log)System.out.println(" <<<RESET");
+                                        
                                         event = Event.VALUE_NUMBER;
                                         break;
                                     }
@@ -569,8 +660,8 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                                     }
                                   
                                          
-                                    if(currentValue.length() >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());    
-                                    currentValue.append(n);
+                                    if(valueLength >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());    
+                                    appendValue(n);
                                     last = n;
                                     
                                 }
@@ -593,14 +684,15 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                     if(!constructingStringValue)throw new JsonParsingException("Unexpected character "+c, createLocation());
                     
                     if(escaped)
-                    {   if(log)System.out.println(" ESCAPEDESCAPED");
+                    {   //if(log)System.out.println(" ESCAPEDESCAPED");
                         
-                        if(currentValue.length() >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
-                        currentValue.append(ESCAPE_CHAR);
+                        if(valueLength >= maxStringSize) throw new JsonParsingException("max string size reached", createLocation());
+                        appendValue(ESCAPE_CHAR);
+                        
                         escaped = false;
                     }
                     else
-                    {   if(log)System.out.println(" ESCAPECHAR");
+                    {   //if(log)System.out.println(" ESCAPECHAR");
                         escaped = true;
                     }
                     
@@ -621,7 +713,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
                 
                 if(event != null) {
                     
-                    if(log)System.out.println(" +++ +++ +++ +++ +++ +++"+event+"::"+currentValue);
+                    //if(log)System.out.println(" +++ +++ +++ +++ +++ +++"+event+"::"+currentValue);
                     
                     return event;
                 
@@ -646,7 +738,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
     @Override
     public String getString() {
         if (event == Event.KEY_NAME || event == Event.VALUE_STRING || event == Event.VALUE_NUMBER) {
-            return currentValue.toString();
+            return getValue();
         }
         throw new IllegalStateException(event + " doesn't support getString()");
     }
@@ -658,8 +750,8 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
             throw new IllegalStateException(event + " doesn't supportisIntegralNumber()");
         }
 
-        for (int i = 0; i < currentValue.length(); i++) {
-            if (!isAsciiDigit(currentValue.charAt(i))) {
+        for (int i = 0; i < valueLength; i++) {
+            if (!isAsciiDigit(currentValue[i])) {
                 return false;
             }
         }
@@ -672,7 +764,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
         if (event != Event.VALUE_NUMBER) {
             throw new IllegalStateException(event + " doesn't supportgetInt()");
         }
-        return Integer.parseInt(currentValue.toString());
+        return Integer.parseInt(getValue());
     }
 
     @Override
@@ -680,7 +772,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
         if (event != Event.VALUE_NUMBER) {
             throw new IllegalStateException(event + " doesn't supporgetLong()");
         }
-        return Long.parseLong(currentValue.toString());
+        return Long.parseLong(getValue());
     }
 
     @Override
@@ -688,7 +780,7 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
         if (event != Event.VALUE_NUMBER) {
             throw new IllegalStateException(event + " doesn't support getBigDecimal()");
         }
-        return new BigDecimal(currentValue.toString());
+        return new BigDecimal(getValue());
     }
 
     @Override
@@ -700,22 +792,22 @@ public class JsonSimpleStreamParser implements JsonChars, EscapedStringAwareJson
     public void close() {
 
         try {
-            reader.close();
+            reader1.close();
         } catch (final IOException e) {
             throw new JsonException(e.getMessage(), e);
         }
     }
 
     public static JsonLocation location(final JsonParser parser) {
-        if (JsonSimpleStreamParser.class.isInstance(parser)) {
-            return JsonSimpleStreamParser.class.cast(parser).createLocation();
+        if (JsonSimpleStreamParser_Opt1.class.isInstance(parser)) {
+            return JsonSimpleStreamParser_Opt1.class.cast(parser).createLocation();
         }
         return new JsonLocationImpl(-1, -1, -1);
     }
 
     @Override
     public String getEscapedString() {
-        return Strings.escape(currentValue.toString());
+        return Strings.escape(getValue());
     }
 
 }

@@ -1,7 +1,9 @@
 package org.apache.fleece.core.jmh.benchmark;
 
 import java.io.ByteArrayInputStream;
+import java.io.CharArrayReader;
 import java.io.InputStream;
+import java.io.Reader;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Collections;
@@ -14,7 +16,13 @@ import javax.json.stream.JsonParser;
 import javax.json.stream.JsonParser.Event;
 import javax.json.stream.JsonParserFactory;
 
+import org.apache.fleece.core.JsonByteBufferStreamParser;
+import org.apache.fleece.core.JsonParserCurrent;
+import org.apache.fleece.core.JsonSimpleStreamParser;
+import org.apache.fleece.core.JsonStreamParser;
 import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.BenchmarkMode;
+import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
@@ -24,9 +32,9 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-@State(Scope.Thread)
-// @BenchmarkMode(Mode.AverageTime)
-// @OutputTimeUnit(TimeUnit.SECONDS)
+@State(Scope.Benchmark)
+@BenchmarkMode(Mode.AverageTime)
+@OutputTimeUnit(TimeUnit.SECONDS)
 public class BenchmarkRawStreamParser {
 
     /*
@@ -40,16 +48,39 @@ o.a.f.c.j.b.BenchmarkRawStreamParser.webxml         thrpt         5    12566,670
 o.a.f.c.j.b.BenchmarkRawStreamParser.widget         thrpt         5    47033,145     4527,860    ops/s
      */
 
-    private final JsonParserFactory parserFactory = Json.createParserFactory(Collections.EMPTY_MAP);
+ 
+    //http://java-performance.info/jmh/
+    private  JsonParserFactory parserFactory = Json.createParserFactory(Collections.EMPTY_MAP);
+
+    public BenchmarkRawStreamParser(JsonParserFactory parserFactory) {
+        super();
+        this.parserFactory = parserFactory;
+    }
 
     private Object parse(InputStream stream) throws Exception {
-        JsonParser parser = parserFactory.createParser(stream);
+        JsonParser parser = new JsonParserCurrent(stream, 8193);
         
         while(parser.hasNext())
         {
             Event e = parser.next();
             
-            //do nothing more
+            //use the value
+            if(e==null) throw new NullPointerException();
+            
+        }
+        
+        return parser;
+    }
+    
+    private Object parse(Reader reader) throws Exception {
+        JsonParser parser = new JsonParserCurrent(reader, 8193);
+        
+        while(parser.hasNext())
+        {
+            Event e = parser.next();
+            
+          //use the value
+            if(e==null) throw new NullPointerException();
         }
         
         return parser;
@@ -59,16 +90,31 @@ o.a.f.c.j.b.BenchmarkRawStreamParser.widget         thrpt         5    47033,145
     public void actionLabel(Blackhole bh) throws Exception {
         bh.consume(parse(new ByteArrayInputStream(Buffers.ACTION_LABEL_BYTES)));
     }
+    
+    @Benchmark
+    public void actionLabel_Reader(Blackhole bh) throws Exception {
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_ACTION_LABEL_BYTES)));
+    }
 
     @Benchmark
     public void citmCatalog(Blackhole bh) throws Exception {
 
         bh.consume(parse(new ByteArrayInputStream(Buffers.CITM_CATALOG_BYTES)));
     }
+    
+    @Benchmark
+    public void citmCatalog_Reader(Blackhole bh) throws Exception {
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_CITM_CATALOG_BYTES)));
+    }
 
     @Benchmark
     public void medium(Blackhole bh) throws Exception {
         bh.consume(parse(new ByteArrayInputStream(Buffers.MEDIUM_BYTES)));
+    }
+    
+    @Benchmark
+    public void medium_Reader(Blackhole bh) throws Exception {
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_MEDIUM_BYTES)));
     }
 
     @Benchmark
@@ -76,11 +122,24 @@ o.a.f.c.j.b.BenchmarkRawStreamParser.widget         thrpt         5    47033,145
 
         bh.consume(parse(new ByteArrayInputStream(Buffers.MENU_BYTES)));
     }
+    
+    @Benchmark
+    public void menu_Reader(Blackhole bh) throws Exception {
+
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_MENU_BYTES)));
+    }
+    
 
     @Benchmark
     public void sgml(Blackhole bh) throws Exception {
 
         bh.consume(parse(new ByteArrayInputStream(Buffers.SGML_BYTES)));
+    }
+    
+    @Benchmark
+    public void sgml_Reader(Blackhole bh) throws Exception {
+
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_SGML_BYTES)));
     }
 
     @Benchmark
@@ -89,10 +148,23 @@ o.a.f.c.j.b.BenchmarkRawStreamParser.widget         thrpt         5    47033,145
         bh.consume(parse(new ByteArrayInputStream(Buffers.WEBXML_BYTES)));
 
     }
+    
+    @Benchmark
+    public void webxml_Reader(Blackhole bh) throws Exception {
+
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_WEBXML_BYTES)));
+
+    }
 
     @Benchmark
     public void widget(Blackhole bh) throws Exception {
         bh.consume(parse(new ByteArrayInputStream(Buffers.WIDGET_BYTES)));
+
+    }
+    
+    @Benchmark
+    public void widget_Reader(Blackhole bh) throws Exception {
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_WIDGET_BYTES)));
 
     }
 

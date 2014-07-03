@@ -57,6 +57,29 @@ public class JsonReaderImplTest {
         reader.close();
     }
     
+    
+    @Test
+    public void unicode() {
+        final JsonReader reader = Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/unicode.json"));
+        assertNotNull(reader);
+        final JsonObject object = reader.readObject();
+        assertNotNull(object);
+      
+        assertEquals(String.valueOf('\u6565'), object.getString("a"));
+        assertEquals("", object.getString("z"));
+        assertEquals(String.valueOf('\u0000'), object.getString("c"));
+        assertThat(object.get("d"), instanceOf(JsonArray.class));
+        final JsonArray array = object.getJsonArray("d");
+        assertNotNull(array);
+        assertEquals(3, array.size());
+        
+        assertEquals(-2, array.getInt(0));
+        assertEquals(" ", array.getString(1));
+        assertEquals("", array.getString(2));
+        assertEquals(5, object.size());
+        reader.close();
+    }
+    
     @Test
     public void special() {
         final JsonReader reader = Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/special.json"));

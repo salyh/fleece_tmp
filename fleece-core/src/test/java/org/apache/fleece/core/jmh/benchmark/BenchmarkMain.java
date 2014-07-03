@@ -11,76 +11,41 @@ import javax.json.JsonReader;
 import javax.json.JsonReaderFactory;
 
 import org.openjdk.jmh.annotations.Benchmark;
-
+import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.infra.Blackhole;
-
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.openjdk.jmh.runner.options.VerboseMode;
 
-@State(Scope.Thread)
-// @BenchmarkMode(Mode.AverageTime)
-// @OutputTimeUnit(TimeUnit.SECONDS)
+
 public class BenchmarkMain {
+    
+    static
+    {
+        //initialize Buffers
+        Buffers.init();
+    }
 
     public static void main(String[] args) throws RunnerException {
 
-        Options opt = new OptionsBuilder().include(".*Raw.*").forks(1).warmupIterations(3)
-                .measurementIterations(5).build();
+        Options opt = new OptionsBuilder()
+            .include(".*Raw.*")
+            .forks(2)
+            .warmupIterations(3)
+            .measurementIterations(3)
+            .threads(16)
+            .mode(Mode.Throughput)
+            .timeUnit(TimeUnit.SECONDS)
+            .verbosity(VerboseMode.EXTRA)
+            .build();
 
         new Runner(opt).run();
     }
 
-    private final JsonReaderFactory readerFactory = Json.createReaderFactory(null);
-
-    private Object parse(InputStream stream) throws Exception {
-        JsonReader reader = readerFactory.createReader(stream);
-        return reader.readObject();
-    }
-
-    @Benchmark
-    public void actionLabel(Blackhole bh) throws Exception {
-        bh.consume(parse(new ByteArrayInputStream(Buffers.ACTION_LABEL_BYTES)));
-    }
-
-    @Benchmark
-    public void citmCatalog(Blackhole bh) throws Exception {
-
-        bh.consume(parse(new ByteArrayInputStream(Buffers.CITM_CATALOG_BYTES)));
-    }
-
-    @Benchmark
-    public void medium(Blackhole bh) throws Exception {
-        bh.consume(parse(new ByteArrayInputStream(Buffers.MEDIUM_BYTES)));
-    }
-
-    @Benchmark
-    public void menu(Blackhole bh) throws Exception {
-
-        bh.consume(parse(new ByteArrayInputStream(Buffers.MENU_BYTES)));
-    }
-
-    @Benchmark
-    public void sgml(Blackhole bh) throws Exception {
-
-        bh.consume(parse(new ByteArrayInputStream(Buffers.SGML_BYTES)));
-    }
-
-    @Benchmark
-    public void webxml(Blackhole bh) throws Exception {
-
-        bh.consume(parse(new ByteArrayInputStream(Buffers.WEBXML_BYTES)));
-
-    }
-
-    @Benchmark
-    public void widget(Blackhole bh) throws Exception {
-        bh.consume(parse(new ByteArrayInputStream(Buffers.WIDGET_BYTES)));
-
-    }
-
+    
 }

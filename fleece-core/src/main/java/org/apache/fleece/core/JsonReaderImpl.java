@@ -32,13 +32,13 @@ import java.math.BigDecimal;
 public class JsonReaderImpl implements JsonReader {
     private final EscapedStringAwareJsonParser parser;
     private final JsonReaderListenerFactory listenerFactory;
-
+    
     public JsonReaderImpl(final InputStream in) {
-        this(new JsonSimpleStreamParser(in, JsonParserFactoryImpl.DEFAULT_MAX_SIZE), new JsonListenerFactory());
+        this(new JsonParserCurrent(in, JsonParserFactoryImpl.DEFAULT_MAX_SIZE), new JsonListenerFactory());
     }
 
     public JsonReaderImpl(final Reader in) {
-        this(new JsonSimpleStreamParser(in, JsonParserFactoryImpl.DEFAULT_MAX_SIZE), new JsonListenerFactory());
+        this(new JsonParserCurrent(in, JsonParserFactoryImpl.DEFAULT_MAX_SIZE), new JsonListenerFactory());
     }
 
     public JsonReaderImpl(final EscapedStringAwareJsonParser parser, final JsonReaderListenerFactory listenerFactory) {

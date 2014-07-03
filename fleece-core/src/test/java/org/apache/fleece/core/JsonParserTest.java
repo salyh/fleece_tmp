@@ -23,7 +23,6 @@ import org.apache.fleece.core.JsonNumberImpl;
 import org.apache.fleece.core.JsonObjectImpl;
 import org.apache.fleece.core.JsonParserFactoryImpl;
 import org.apache.fleece.core.JsonReaderImpl;
-import org.apache.fleece.core.JsonStreamParser;
 import org.apache.fleece.core.JsonStringImpl;
 import org.junit.Test;
 
@@ -468,7 +467,9 @@ public class JsonParserTest {
 
     @Test
     public void hasNext() {
-        final JsonParser parser = new JsonSimpleStreamParser(new ByteArrayInputStream("{}".getBytes()), 1000);
+        final JsonParser parser = Json.createParserFactory(new HashMap<String, Object>() {{
+            put(JsonParserFactoryImpl.MAX_STRING_LENGTH, 10);
+        }}).createParser(new ByteArrayInputStream("{}".getBytes()));
         assertTrue(parser.hasNext());
         assertTrue(parser.hasNext());
         assertTrue(parser.hasNext());
@@ -480,139 +481,159 @@ public class JsonParserTest {
     @Test(expected = JsonParsingException.class)
     public void commaChecks() {
         // using a reader as wrapper of parser
-        new JsonReaderImpl(new ByteArrayInputStream("{\"z\":\"b\"\"j\":\"d\"}".getBytes())).read();
+  
+        Json.createReader(new ByteArrayInputStream("{\"z\":\"b\"\"j\":\"d\"}".getBytes())).read();
     }
     
     
     @Test(expected = JsonParsingException.class)
     public void fail1() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail1.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail1.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail2() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail2.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail2.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail3() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail3.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail3.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail4() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail4.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail4.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail5() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail5.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail5.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail6() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail6.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail6.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail7() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail7.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail7.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail8() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail8.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail8.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail9() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail9.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail9.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail10() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail10.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail10.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail11() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail11.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail11.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail12() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail12.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail12.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail13() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail13.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail13.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail14() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail14.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail14.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail15() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail15.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail15.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail16() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail16.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail16.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail17() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail17.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail17.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail18() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail18.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail18.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail19() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail19.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail19.json")).read();
     }
     
     //@Test(expected = JsonParsingException.class)
     public void fail20() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail20.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail20.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail21() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail21.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail21.json")).read();
     }
     
     @Test(expected = JsonParsingException.class)
     public void fail22() {
         
-        new JsonReaderImpl(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail22.json")).read();
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail22.json")).read();
     }
+    
+    @Test(expected = JsonParsingException.class)
+    public void fail23() {
+        
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail23.json")).read();
+    }
+    
+    @Test(expected = JsonParsingException.class)
+    public void fail24() {
+        
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail24.json")).read();
+    }
+    
+    @Test(expected = JsonParsingException.class)
+    public void fail25() {
+        
+        Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/fails/fail25.json")).read();
+    }
+    
 }

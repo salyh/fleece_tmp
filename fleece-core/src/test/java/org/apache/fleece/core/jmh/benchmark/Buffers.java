@@ -2,6 +2,7 @@ package org.apache.fleece.core.jmh.benchmark;
 
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
@@ -38,31 +39,51 @@ public class Buffers {
     public static final char[] CHR_WIDGET_BYTES = readChars ( "/bench/widget.json" );
 
     private static byte[] readBytes(String path) {
+            
+            InputStream in = null;
             try {
-                return IOUtils.toByteArray(Buffers.class.getResourceAsStream(path));
+                return IOUtils.toByteArray(in=Buffers.class.getResourceAsStream(path));
             } catch (IOException e) {
                 return null;
             }
-            //return IO.read (path ).getBytes ( StandardCharsets.UTF_8 );
+            finally
+            {
+                IOUtils.closeQuietly(in);
+            }
 
     }
 
 
     private static String readStr(String path) {
+        
+        InputStream in = null;
         try {
-            return IOUtils.toString(Buffers.class.getResourceAsStream(path));
+            return IOUtils.toString(in=Buffers.class.getResourceAsStream(path),Charset.forName("UTF-8"));
         } catch (IOException e) {
             return null;
+        }finally
+        {
+            IOUtils.closeQuietly(in);
         }
     }
 
 
 
     private static char [] readChars(String path) {
+        
+        InputStream in = null;
         try {
-            return IOUtils.toCharArray(Buffers.class.getResourceAsStream(path), Charset.forName("UTF-8"));
+            return IOUtils.toCharArray(in=Buffers.class.getResourceAsStream(path), Charset.forName("UTF-8"));
         } catch (IOException e) {
             return null;
+        }finally
+        {
+            IOUtils.closeQuietly(in);
         }
+    }
+    
+    public static void init()
+    {
+        
     }
 }
