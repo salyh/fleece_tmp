@@ -37,9 +37,11 @@ import javax.json.stream.JsonParsingException;
 import javax.management.RuntimeErrorException;
 
 public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAwareJsonParser {
-
+	
+	private static BufferCache<char[]> VBUFFER_CACHE;
+	
     //private final ReentrantLock lock = new ReentrantLock();
-    protected boolean log = false;
+    protected final static boolean log = false;
     private final int maxStringSize;
     
 
@@ -68,9 +70,18 @@ public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAw
 
     protected JsonBaseStreamParser(final int maxStringLength) {
         
-
+    	if(VBUFFER_CACHE == null)
+    	{
+    	VBUFFER_CACHE = new BufferCache<char[]>(
+    			maxStringLength) {
+    	    @Override
+    	    protected char[] newValue(final int defaultSize) {
+    	        return new char[defaultSize];
+    	    }
+    	};}
+    	
         this.maxStringSize = maxStringLength < 0 ? 8192 : maxStringLength;
-        currentValue = new char[maxStringLength];
+        currentValue = VBUFFER_CACHE.getCache();
     }
 
     
@@ -581,13 +592,15 @@ public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAw
                                         break;
                                     }
                                     
-                                    if(endExpected && n != SPACE && n != TAB && n != CR) throw new JsonParsingException("unexpected character "+n, createLocation());
-                                    
                                     if(n == EOL)
                                     {
                                         last = n;
                                         continue;
                                     }
+                                    
+                                    
+                                    if(endExpected && n != SPACE && n != TAB && n != CR) throw new JsonParsingException("unexpected character "+n+" ("+(int)n+")", createLocation());
+                                    
                                     
                                     if(n == SPACE || n == TAB || n == CR)
                                     {
@@ -760,6 +773,8 @@ public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAw
     @Override
     public void close() {
 
+    	VBUFFER_CACHE.release(currentValue);
+    	
         try {
             closeUnderlyingSource();
         } catch (final IOException e) {

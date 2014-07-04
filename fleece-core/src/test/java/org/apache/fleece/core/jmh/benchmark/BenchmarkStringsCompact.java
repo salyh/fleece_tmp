@@ -39,8 +39,44 @@ public class BenchmarkStringsCompact {
  
 
     @Benchmark
-    public void normal(Blackhole bh) throws Exception {
-        bh.consume(Strings.escape(Buffers.STR_ACTION_LABEL_BYTES));
+    public void normalWithUnicode(Blackhole bh) throws Exception {
+    	bh.consume(Strings.escape(Buffers.STR_UNICODESTXT_BYTES));
+    	bh.consume(Strings.escape(Buffers.STR_ACTION_LABEL_BYTES));
+    	bh.consume(Strings.escape(Buffers.STR_UNICODESTXT_BYTES));
+    	bh.consume(Strings.escape(Buffers.STR_UNICODESTXT_BYTES));        
+        bh.consume(Strings.escape(Buffers.STR_MEDIUM_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_MENU_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_SMALL_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_SGML_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_WIDGET_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_WEBXML_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_UNICODESTXT_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_UNICODESTXT_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_UNICODESTXT_BIG_BYTES));
+    }
+    
+    @Benchmark
+    public void optimizedWithUnicode(Blackhole bh) throws Exception {
+    	bh.consume(Strings_Optimized.escape(Buffers.STR_UNICODESTXT_BYTES));
+    	bh.consume(Strings_Optimized.escape(Buffers.STR_ACTION_LABEL_BYTES));
+    	bh.consume(Strings_Optimized.escape(Buffers.STR_UNICODESTXT_BYTES));
+    	bh.consume(Strings_Optimized.escape(Buffers.STR_UNICODESTXT_BYTES));        
+        bh.consume(Strings_Optimized.escape(Buffers.STR_MEDIUM_BYTES));
+        bh.consume(Strings_Optimized.escape(Buffers.STR_MENU_BYTES));
+        bh.consume(Strings_Optimized.escape(Buffers.STR_SMALL_BYTES));
+        bh.consume(Strings_Optimized.escape(Buffers.STR_SGML_BYTES));
+        bh.consume(Strings_Optimized.escape(Buffers.STR_WIDGET_BYTES));
+        bh.consume(Strings_Optimized.escape(Buffers.STR_WEBXML_BYTES));
+        bh.consume(Strings_Optimized.escape(Buffers.STR_UNICODESTXT_BYTES));
+        bh.consume(Strings_Optimized.escape(Buffers.STR_UNICODESTXT_BYTES));
+        bh.consume(Strings_Optimized.escape(Buffers.STR_UNICODESTXT_BIG_BYTES));
+        
+    }
+
+    @Benchmark
+    public void normalWithoutUnicode(Blackhole bh) throws Exception {
+    	
+    	bh.consume(Strings.escape(Buffers.STR_ACTION_LABEL_BYTES));
         bh.consume(Strings.escape(Buffers.STR_CITM_CATALOG_BYTES));
         bh.consume(Strings.escape(Buffers.STR_MEDIUM_BYTES));
         bh.consume(Strings.escape(Buffers.STR_MENU_BYTES));
@@ -48,18 +84,21 @@ public class BenchmarkStringsCompact {
         bh.consume(Strings.escape(Buffers.STR_SGML_BYTES));
         bh.consume(Strings.escape(Buffers.STR_WIDGET_BYTES));
         bh.consume(Strings.escape(Buffers.STR_WEBXML_BYTES));
+        
     }
     
     @Benchmark
-    public void optimized(Blackhole bh) throws Exception {
-        bh.consume(Strings_Optimized.escape(Buffers.STR_ACTION_LABEL_BYTES));
-        bh.consume(Strings_Optimized.escape(Buffers.STR_CITM_CATALOG_BYTES));
-        bh.consume(Strings_Optimized.escape(Buffers.STR_MEDIUM_BYTES));
-        bh.consume(Strings_Optimized.escape(Buffers.STR_MENU_BYTES));
-        bh.consume(Strings_Optimized.escape(Buffers.STR_SMALL_BYTES));
-        bh.consume(Strings_Optimized.escape(Buffers.STR_SGML_BYTES));
-        bh.consume(Strings_Optimized.escape(Buffers.STR_WIDGET_BYTES));
-        bh.consume(Strings_Optimized.escape(Buffers.STR_WEBXML_BYTES));
+    public void optimizedWithoutUnicode(Blackhole bh) throws Exception {
+    
+    	bh.consume(Strings.escape(Buffers.STR_ACTION_LABEL_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_CITM_CATALOG_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_MEDIUM_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_MENU_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_SMALL_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_SGML_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_WIDGET_BYTES));
+        bh.consume(Strings.escape(Buffers.STR_WEBXML_BYTES));
+       
     }
 
     

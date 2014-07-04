@@ -6,13 +6,21 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.Charset;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 
+public class JsonByteBufferStreamParser extends JsonBaseStreamParser {
 
-/*public class JsonByteBufferStreamParser extends JsonBaseStreamParser {
+private static final BufferCache<byte[]> BUFFER_CACHE = new BufferCache<byte[]>(
+        Integer.getInteger("org.apache.fleece.default-char-buffer", 8192) /*BufferedReader.defaultCharBufferSize*/) {
+    @Override
+    protected byte[] newValue(final int defaultSize) {
+        return new byte[defaultSize];
+    }
+};
 
-    private final byte[] buffer0 = new byte[Integer.getInteger("org.apache.fleece.default-char-buffer", 8192*2)];
+
+    private final byte[] buffer0 = BUFFER_CACHE.getCache();
+    private final Reader inr;
     private final InputStream in;
     private int pointer=-1;
     private int avail;
@@ -24,18 +32,21 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
     
     public JsonByteBufferStreamParser(final Reader reader, final int maxStringLength) {
         super(maxStringLength);
-        throw new NotImplementedException();
-       
+        inr = reader;
+        in=null;
     }
 
 
     public JsonByteBufferStreamParser(final InputStream stream, final int maxStringLength) {
-        super(maxStringLength);
-        in=stream;
+    	super(maxStringLength);
+        in = stream;
+        inr=null;
     }
 
     public JsonByteBufferStreamParser(final InputStream in, final Charset charset, final int maxStringLength) {
-        this(in, maxStringLength);
+    	super(maxStringLength);
+    	this.in = in;
+    	inr=null;
     }
 
     @Override
@@ -69,8 +80,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
         
         pointer++;
         avail--;
-        B
-        return buffer0[pointer];
+        return (char) (buffer0[pointer] & 0xFF);
         
         
     }
@@ -79,7 +89,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
     protected void mark()
     {
         if(log)System.out.println("    MARK "+buffer0[pointer]+" ("+(int)buffer0[pointer]+")");
-        mark = buffer0[pointer];
+        mark = (char) (buffer0[pointer] & 0xFF);
         //availOnMark = avail;
         
         if(avail ==0) {
@@ -100,8 +110,11 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
     @Override
     protected void closeUnderlyingSource() throws IOException {
+    	
+    	BUFFER_CACHE.release(buffer0);
+    	
         if(in!=null)in.close();
-
+        if(inr!=null)in.close();
     }
 
-}*/
+}

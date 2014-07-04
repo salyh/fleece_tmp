@@ -137,14 +137,38 @@ o.a.f.c.j.b.BenchmarkRawStreamParser.widget         thrpt         5    47033,145
 
     
     @Benchmark
-    public void small(Blackhole bh) throws Exception {
-        bh.consume(parse(new ByteArrayInputStream(Buffers.SMALL_BYTES)));
+    public void genhuge(Blackhole bh) throws Exception {
+        bh.consume(parse(new ByteArrayInputStream(Buffers.GENHUGE_BYTES)));
+
+    }
+    
+    @Benchmark
+    public void genmedium(Blackhole bh) throws Exception {
+        bh.consume(parse(new ByteArrayInputStream(Buffers.GENMEDIUM_BYTES)));
 
     }
     
     @Benchmark
     public void small_Reader(Blackhole bh) throws Exception {
         bh.consume(parse(new CharArrayReader(Buffers.CHR_SMALL_BYTES)));
+
+    }
+    
+    @Benchmark
+    public void small(Blackhole bh) throws Exception {
+        bh.consume(parse(new ByteArrayInputStream(Buffers.SMALL_BYTES)));
+
+    }
+    
+    @Benchmark
+    public void genhuge_Reader(Blackhole bh) throws Exception {
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_GENHUGE_BYTES)));
+
+    }
+    
+    @Benchmark
+    public void genmedium_Reader(Blackhole bh) throws Exception {
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_GENMEDIUM_BYTES)));
 
     }
 }

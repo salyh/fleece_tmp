@@ -31,26 +31,59 @@ public class BenchmarkMain {
         //initialize Buffers
         Buffers.init();
     }
+    
+    public static void main(String[] args) throws Exception {
+    	run(1,1,2,3);
+    	//run(1,4,3,4);
+    	//run(2,4,3,4);
+    	//run(2,16,3,5);
+    }
+    
+    private static final int forks = 1;
+    private static final int threads = 4;
+    private static final int warmupit=3;
+    private static final int measureit=4;
 
-    public static void main(String[] args) throws RunnerException {
+    public static void run(int forks ,int threads,int warmupit,int measureit ) throws Exception {
 
         Options opt = new OptionsBuilder()
-            .include(".*StringsCo.*")
-            .forks(2)
-            .warmupIterations(3)
-            .measurementIterations(3)
-            .threads(16)
+            .include(".*")
+            .forks(forks)
+            .warmupIterations(warmupit)
+            .measurementIterations(measureit)
+            .threads(threads)
             .mode(Mode.AverageTime)
-            .timeUnit(TimeUnit.MILLISECONDS)
+            .timeUnit(TimeUnit.MICROSECONDS)
             .verbosity(VerboseMode.EXTRA)
             //.syncIterations(value)
             .resultFormat(ResultFormatType.TEXT)
-            //.result("benchmark_jmh_result.txt")
-            //.output("benchmark_jmh_log.txt")
+            .result(String.format("avg_benchmark_jmh_result_f%d_t%d_w%d_i%d.txt",forks,threads,warmupit,measureit))
+            .output(String.format("avg_benchmark_jmh_log_f%d_t%d_w%d_i%d.txt",forks,threads,warmupit,measureit))
             
             .build();
 
         new Runner(opt).run();
+        
+        
+        System.out.println("-second-");
+        
+        opt = new OptionsBuilder()
+        .include(".*")
+        .forks(forks)
+        .warmupIterations(warmupit)
+        .measurementIterations(measureit)
+        .threads(threads)
+        .mode(Mode.Throughput)
+        .timeUnit(TimeUnit.SECONDS)
+        .verbosity(VerboseMode.EXTRA)
+        //.syncIterations(value)
+        .resultFormat(ResultFormatType.TEXT)
+        .result(String.format("thr_benchmark_jmh_result_f%d_t%d_w%d_i%d.txt",forks,threads,warmupit,measureit))
+        .output(String.format("thr_benchmark_jmh_log_f%d_t%d_w%d_i%d.txt",forks,threads,warmupit,measureit))
+        
+        .build();
+
+    new Runner(opt).run();
     }
 
     

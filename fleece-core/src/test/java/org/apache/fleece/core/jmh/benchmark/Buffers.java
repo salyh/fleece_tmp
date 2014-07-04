@@ -18,16 +18,23 @@ public class Buffers {
     public static final byte[] SMALL_BYTES = readBytes( "/bench/small.json" );
     public static final byte[] WEBXML_BYTES = readBytes( "/bench/webxml.json" );
     public static final byte[] WIDGET_BYTES = readBytes( "/bench/widget.json" );
+    public static final byte[] GENHUGE_BYTES = readBytes( "/bench/gen_huge.json" );
+    public static final byte[] GENMEDIUM_BYTES = readBytes( "/bench/gen_medium.json" );
+    public static final byte[] UNICODESTXT_BYTES = readBytes( "/bench/unicodes.txt" );
+    public static final byte[] UNICODESTXT_BIG_BYTES = readBytes( "/bench/unicodes_big.txt" );
 
     public static final String STR_ACTION_LABEL_BYTES = readStr( "/bench/actionLabel.json" );
     public static final String STR_CITM_CATALOG_BYTES = readStr( "/bench/citm_catalog.json" );
     public static final String STR_MEDIUM_BYTES = readStr( "/bench/medium.json" );
     public static final String STR_MENU_BYTES = readStr( "/bench/menu.json" );
     public static final String STR_SGML_BYTES = readStr( "/bench/sgml.json" );
-    public static final String  STR_SMALL_BYTES = readStr( "/bench/small.json" );
+    public static final String STR_SMALL_BYTES = readStr( "/bench/small.json" );
     public static final String STR_WEBXML_BYTES = readStr( "/bench/webxml.json" );
     public static final String STR_WIDGET_BYTES = readStr( "/bench/widget.json" );
-
+    public static final String STR_GENHUGE_BYTES = readStr( "/bench/gen_huge.json" );
+    public static final String STR_GENMEDIUM_BYTES = readStr( "/bench/gen_medium.json" );
+    public static final String STR_UNICODESTXT_BYTES = readStr( "/bench/unicodes.txt" );
+    public static final String STR_UNICODESTXT_BIG_BYTES = readStr( "/bench/unicodes_big.txt" );
 
     public static final char[] CHR_ACTION_LABEL_BYTES = readChars ( "/bench/actionLabel.json" );
     public static final char[] CHR_CITM_CATALOG_BYTES = readChars ( "/bench/citm_catalog.json" );
@@ -37,6 +44,10 @@ public class Buffers {
     public static final char[] CHR_SMALL_BYTES = readChars ( "/bench/small.json" );
     public static final char[] CHR_WEBXML_BYTES = readChars ( "/bench/webxml.json" );
     public static final char[] CHR_WIDGET_BYTES = readChars ( "/bench/widget.json" );
+    public static final char[] CHR_GENHUGE_BYTES = readChars( "/bench/gen_huge.json" );
+    public static final char[] CHR_GENMEDIUM_BYTES = readChars( "/bench/gen_medium.json" );
+    public static final char[] CHR_UNICODESTXT_BYTES = readChars( "/bench/unicodes.txt" );
+    public static final char[] CHR_UNICODESTXT_BIG_BYTES = readChars( "/bench/unicodes_big.txt" );
 
     private static byte[] readBytes(String path) {
             

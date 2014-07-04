@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.nio.charset.Charset;
 
-public class JsonParserCurrent extends JsonCharBufferStreamParser {
+public class JsonParserCurrent extends JsonByteBufferStreamParser {
 
     public JsonParserCurrent(Reader reader, int maxStringLength) {
         super(reader, maxStringLength);
