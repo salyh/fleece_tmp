@@ -1,0 +1,1597 @@
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49238]
+# Run progress: 0,00% complete, ETA 00:05:20
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.BenchmarkStringsCompact.normalWithUnicode
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 18760,036 us/op
+# Warmup Iteration   2: 13055,787 us/op
+Iteration   1: 11998,271 us/op
+Iteration   2: 12506,753 us/op
+Iteration   3: 12259,061 us/op
+
+Result: 12254,695 ±(99.9%) 4638,817 us/op [Average]
+  Statistics: (min, avg, max) = (11998,271, 12254,695, 12506,753), stdev = 254,269
+  Confidence interval (99.9%): [7615,879, 16893,512]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49240]
+# Run progress: 1,56% complete, ETA 00:06:36
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.BenchmarkStringsCompact.normalWithoutUnicode
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 16121,747 us/op
+# Warmup Iteration   2: 13416,311 us/op
+Iteration   1: 15442,115 us/op
+Iteration   2: 13420,907 us/op
+Iteration   3: 14990,950 us/op
+
+Result: 14617,991 ±(99.9%) 19355,935 us/op [Average]
+  Statistics: (min, avg, max) = (13420,907, 14617,991, 15442,115), stdev = 1060,964
+  Confidence interval (99.9%): [-4737,944, 33973,925]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49245]
+# Run progress: 3,13% complete, ETA 00:06:30
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.BenchmarkStringsCompact.optimizedWithUnicode
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 13837,764 us/op
+# Warmup Iteration   2: 11990,494 us/op
+Iteration   1: 10717,274 us/op
+Iteration   2: 11005,140 us/op
+Iteration   3: 11182,492 us/op
+
+Result: 10968,302 ±(99.9%) 4283,380 us/op [Average]
+  Statistics: (min, avg, max) = (10717,274, 10968,302, 11182,492), stdev = 234,787
+  Confidence interval (99.9%): [6684,922, 15251,682]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49251]
+# Run progress: 4,69% complete, ETA 00:06:25
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.BenchmarkStringsCompact.optimizedWithoutUnicode
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 17765,594 us/op
+# Warmup Iteration   2: 13886,436 us/op
+Iteration   1: 13709,599 us/op
+Iteration   2: 14875,779 us/op
+Iteration   3: 15120,041 us/op
+
+Result: 14568,473 ±(99.9%) 13751,516 us/op [Average]
+  Statistics: (min, avg, max) = (13709,599, 14568,473, 15120,041), stdev = 753,767
+  Confidence interval (99.9%): [816,957, 28319,989]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49255]
+# Run progress: 6,25% complete, ETA 00:06:18
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.actionLabel
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 11,459 us/op
+# Warmup Iteration   2: 8,243 us/op
+Iteration   1: 8,085 us/op
+Iteration   2: 8,499 us/op
+Iteration   3: 8,647 us/op
+
+Result: 8,410 ±(99.9%) 5,312 us/op [Average]
+  Statistics: (min, avg, max) = (8,085, 8,410, 8,647), stdev = 0,291
+  Confidence interval (99.9%): [3,099, 13,722]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49258]
+# Run progress: 7,81% complete, ETA 00:06:10
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.actionLabel_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.apache.fleece.core.JsonByteBufferStreamParser.readNextChar(JsonByteBufferStreamParser.java:67)
+	at org.apache.fleece.core.JsonBaseStreamParser.read(JsonBaseStreamParser.java:201)
+	at org.apache.fleece.core.JsonBaseStreamParser.next0(JsonBaseStreamParser.java:306)
+	at org.apache.fleece.core.JsonBaseStreamParser.next(JsonBaseStreamParser.java:284)
+	at org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.parse(ByteBufferStreamparserBenchmark.java:37)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.actionLabel_Reader(BenchmarkRawStreamParser.java:63)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_actionLabel_Reader.actionLabel_Reader_avgt_jmhLoop(ByteBufferStreamparserBenchmark_actionLabel_Reader.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_actionLabel_Reader.actionLabel_Reader_AverageTime(ByteBufferStreamparserBenchmark_actionLabel_Reader.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49261]
+# Run progress: 9,38% complete, ETA 00:05:17
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.citmCatalog
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 15391,635 us/op
+# Warmup Iteration   2: 13767,309 us/op
+Iteration   1: 13389,842 us/op
+Iteration   2: 12747,305 us/op
+Iteration   3: 12712,833 us/op
+
+Result: 12949,994 ±(99.9%) 6956,509 us/op [Average]
+  Statistics: (min, avg, max) = (12712,833, 12949,994, 13389,842), stdev = 381,310
+  Confidence interval (99.9%): [5993,485, 19906,502]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49263]
+# Run progress: 10,94% complete, ETA 00:05:18
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.citmCatalog_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.apache.fleece.core.JsonByteBufferStreamParser.readNextChar(JsonByteBufferStreamParser.java:67)
+	at org.apache.fleece.core.JsonBaseStreamParser.read(JsonBaseStreamParser.java:201)
+	at org.apache.fleece.core.JsonBaseStreamParser.next0(JsonBaseStreamParser.java:306)
+	at org.apache.fleece.core.JsonBaseStreamParser.next(JsonBaseStreamParser.java:284)
+	at org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.parse(ByteBufferStreamparserBenchmark.java:37)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.citmCatalog_Reader(BenchmarkRawStreamParser.java:74)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_citmCatalog_Reader.citmCatalog_Reader_avgt_jmhLoop(ByteBufferStreamparserBenchmark_citmCatalog_Reader.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_citmCatalog_Reader.citmCatalog_Reader_AverageTime(ByteBufferStreamparserBenchmark_citmCatalog_Reader.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49265]
+# Run progress: 12,50% complete, ETA 00:04:43
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.genhuge
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 15201,912 us/op
+# Warmup Iteration   2: 10571,001 us/op
+Iteration   1: 11016,931 us/op
+Iteration   2: 11548,345 us/op
+Iteration   3: 11840,785 us/op
+
+Result: 11468,687 ±(99.9%) 7619,744 us/op [Average]
+  Statistics: (min, avg, max) = (11016,931, 11468,687, 11840,785), stdev = 417,664
+  Confidence interval (99.9%): [3848,942, 19088,431]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49270]
+# Run progress: 14,06% complete, ETA 00:04:45
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.genhuge_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.apache.fleece.core.JsonByteBufferStreamParser.readNextChar(JsonByteBufferStreamParser.java:67)
+	at org.apache.fleece.core.JsonBaseStreamParser.read(JsonBaseStreamParser.java:201)
+	at org.apache.fleece.core.JsonBaseStreamParser.next0(JsonBaseStreamParser.java:306)
+	at org.apache.fleece.core.JsonBaseStreamParser.next(JsonBaseStreamParser.java:284)
+	at org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.parse(ByteBufferStreamparserBenchmark.java:37)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.genhuge_Reader(BenchmarkRawStreamParser.java:165)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_genhuge_Reader.genhuge_Reader_avgt_jmhLoop(ByteBufferStreamparserBenchmark_genhuge_Reader.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_genhuge_Reader.genhuge_Reader_AverageTime(ByteBufferStreamparserBenchmark_genhuge_Reader.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49272]
+# Run progress: 15,63% complete, ETA 00:04:19
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.genmedium
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 136,250 us/op
+# Warmup Iteration   2: 128,895 us/op
+Iteration   1: 130,558 us/op
+Iteration   2: 103,526 us/op
+Iteration   3: 100,024 us/op
+
+Result: 111,369 ±(99.9%) 304,848 us/op [Average]
+  Statistics: (min, avg, max) = (100,024, 111,369, 130,558), stdev = 16,710
+  Confidence interval (99.9%): [-193,479, 416,217]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49276]
+# Run progress: 17,19% complete, ETA 00:04:21
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.genmedium_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.apache.fleece.core.JsonByteBufferStreamParser.readNextChar(JsonByteBufferStreamParser.java:67)
+	at org.apache.fleece.core.JsonBaseStreamParser.read(JsonBaseStreamParser.java:201)
+	at org.apache.fleece.core.JsonBaseStreamParser.next0(JsonBaseStreamParser.java:306)
+	at org.apache.fleece.core.JsonBaseStreamParser.next(JsonBaseStreamParser.java:284)
+	at org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.parse(ByteBufferStreamparserBenchmark.java:37)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.genmedium_Reader(BenchmarkRawStreamParser.java:171)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_genmedium_Reader.genmedium_Reader_avgt_jmhLoop(ByteBufferStreamparserBenchmark_genmedium_Reader.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_genmedium_Reader.genmedium_Reader_AverageTime(ByteBufferStreamparserBenchmark_genmedium_Reader.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49278]
+# Run progress: 18,75% complete, ETA 00:04:01
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.medium
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 22,954 us/op
+# Warmup Iteration   2: 18,244 us/op
+Iteration   1: 17,647 us/op
+Iteration   2: 18,525 us/op
+Iteration   3: 19,817 us/op
+
+Result: 18,663 ±(99.9%) 19,908 us/op [Average]
+  Statistics: (min, avg, max) = (17,647, 18,663, 19,817), stdev = 1,091
+  Confidence interval (99.9%): [-1,245, 38,571]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49280]
+# Run progress: 20,31% complete, ETA 00:04:03
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.medium_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.apache.fleece.core.JsonByteBufferStreamParser.readNextChar(JsonByteBufferStreamParser.java:67)
+	at org.apache.fleece.core.JsonBaseStreamParser.read(JsonBaseStreamParser.java:201)
+	at org.apache.fleece.core.JsonBaseStreamParser.next0(JsonBaseStreamParser.java:306)
+	at org.apache.fleece.core.JsonBaseStreamParser.next(JsonBaseStreamParser.java:284)
+	at org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.parse(ByteBufferStreamparserBenchmark.java:37)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.medium_Reader(BenchmarkRawStreamParser.java:84)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_medium_Reader.medium_Reader_avgt_jmhLoop(ByteBufferStreamparserBenchmark_medium_Reader.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_medium_Reader.medium_Reader_AverageTime(ByteBufferStreamparserBenchmark_medium_Reader.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49282]
+# Run progress: 21,88% complete, ETA 00:03:46
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.menu
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 5,128 us/op
+# Warmup Iteration   2: 3,782 us/op
+Iteration   1: 3,837 us/op
+Iteration   2: 3,628 us/op
+Iteration   3: 3,581 us/op
+
+Result: 3,682 ±(99.9%) 2,487 us/op [Average]
+  Statistics: (min, avg, max) = (3,581, 3,682, 3,837), stdev = 0,136
+  Confidence interval (99.9%): [1,195, 6,169]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49286]
+# Run progress: 23,44% complete, ETA 00:03:47
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.menu_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.apache.fleece.core.JsonByteBufferStreamParser.readNextChar(JsonByteBufferStreamParser.java:67)
+	at org.apache.fleece.core.JsonBaseStreamParser.read(JsonBaseStreamParser.java:201)
+	at org.apache.fleece.core.JsonBaseStreamParser.next0(JsonBaseStreamParser.java:306)
+	at org.apache.fleece.core.JsonBaseStreamParser.next(JsonBaseStreamParser.java:284)
+	at org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.parse(ByteBufferStreamparserBenchmark.java:37)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.menu_Reader(BenchmarkRawStreamParser.java:96)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_menu_Reader.menu_Reader_avgt_jmhLoop(ByteBufferStreamparserBenchmark_menu_Reader.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_menu_Reader.menu_Reader_AverageTime(ByteBufferStreamparserBenchmark_menu_Reader.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49288]
+# Run progress: 25,00% complete, ETA 00:03:33
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.sgml
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 10,601 us/op
+# Warmup Iteration   2: 6,253 us/op
+Iteration   1: 6,363 us/op
+Iteration   2: 6,283 us/op
+Iteration   3: 6,737 us/op
+
+Result: 6,461 ±(99.9%) 4,414 us/op [Average]
+  Statistics: (min, avg, max) = (6,283, 6,461, 6,737), stdev = 0,242
+  Confidence interval (99.9%): [2,047, 10,875]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49292]
+# Run progress: 26,56% complete, ETA 00:03:34
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.sgml_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.apache.fleece.core.JsonByteBufferStreamParser.readNextChar(JsonByteBufferStreamParser.java:67)
+	at org.apache.fleece.core.JsonBaseStreamParser.read(JsonBaseStreamParser.java:201)
+	at org.apache.fleece.core.JsonBaseStreamParser.next0(JsonBaseStreamParser.java:306)
+	at org.apache.fleece.core.JsonBaseStreamParser.next(JsonBaseStreamParser.java:284)
+	at org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.parse(ByteBufferStreamparserBenchmark.java:37)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.sgml_Reader(BenchmarkRawStreamParser.java:109)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_sgml_Reader.sgml_Reader_avgt_jmhLoop(ByteBufferStreamparserBenchmark_sgml_Reader.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_sgml_Reader.sgml_Reader_AverageTime(ByteBufferStreamparserBenchmark_sgml_Reader.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49294]
+# Run progress: 28,13% complete, ETA 00:03:21
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.small
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 3,003 us/op
+# Warmup Iteration   2: 2,073 us/op
+Iteration   1: 2,109 us/op
+Iteration   2: 2,318 us/op
+Iteration   3: 2,208 us/op
+
+Result: 2,212 ±(99.9%) 1,904 us/op [Average]
+  Statistics: (min, avg, max) = (2,109, 2,212, 2,318), stdev = 0,104
+  Confidence interval (99.9%): [0,307, 4,116]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49296]
+# Run progress: 29,69% complete, ETA 00:03:21
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.small_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.apache.fleece.core.JsonByteBufferStreamParser.readNextChar(JsonByteBufferStreamParser.java:67)
+	at org.apache.fleece.core.JsonBaseStreamParser.read(JsonBaseStreamParser.java:201)
+	at org.apache.fleece.core.JsonBaseStreamParser.next0(JsonBaseStreamParser.java:306)
+	at org.apache.fleece.core.JsonBaseStreamParser.next(JsonBaseStreamParser.java:284)
+	at org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.parse(ByteBufferStreamparserBenchmark.java:37)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.small_Reader(BenchmarkRawStreamParser.java:153)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_small_Reader.small_Reader_avgt_jmhLoop(ByteBufferStreamparserBenchmark_small_Reader.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_small_Reader.small_Reader_AverageTime(ByteBufferStreamparserBenchmark_small_Reader.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49299]
+# Run progress: 31,25% complete, ETA 00:03:10
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.webxml
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 43,519 us/op
+# Warmup Iteration   2: 32,239 us/op
+Iteration   1: 30,216 us/op
+Iteration   2: 30,409 us/op
+Iteration   3: 31,869 us/op
+
+Result: 30,831 ±(99.9%) 16,494 us/op [Average]
+  Statistics: (min, avg, max) = (30,216, 30,831, 31,869), stdev = 0,904
+  Confidence interval (99.9%): [14,337, 47,325]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49302]
+# Run progress: 32,81% complete, ETA 00:03:10
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.webxml_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.apache.fleece.core.JsonByteBufferStreamParser.readNextChar(JsonByteBufferStreamParser.java:67)
+	at org.apache.fleece.core.JsonBaseStreamParser.read(JsonBaseStreamParser.java:201)
+	at org.apache.fleece.core.JsonBaseStreamParser.next0(JsonBaseStreamParser.java:306)
+	at org.apache.fleece.core.JsonBaseStreamParser.next(JsonBaseStreamParser.java:284)
+	at org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.parse(ByteBufferStreamparserBenchmark.java:37)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.webxml_Reader(BenchmarkRawStreamParser.java:122)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_webxml_Reader.webxml_Reader_avgt_jmhLoop(ByteBufferStreamparserBenchmark_webxml_Reader.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_webxml_Reader.webxml_Reader_AverageTime(ByteBufferStreamparserBenchmark_webxml_Reader.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49304]
+# Run progress: 34,38% complete, ETA 00:02:59
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.widget
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 11,303 us/op
+# Warmup Iteration   2: 8,542 us/op
+Iteration   1: 8,424 us/op
+Iteration   2: 8,109 us/op
+Iteration   3: 8,198 us/op
+
+Result: 8,244 ±(99.9%) 2,964 us/op [Average]
+  Statistics: (min, avg, max) = (8,109, 8,244, 8,424), stdev = 0,162
+  Confidence interval (99.9%): [5,280, 11,208]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49308]
+# Run progress: 35,94% complete, ETA 00:02:59
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.widget_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at org.apache.fleece.core.JsonByteBufferStreamParser.readNextChar(JsonByteBufferStreamParser.java:67)
+	at org.apache.fleece.core.JsonBaseStreamParser.read(JsonBaseStreamParser.java:201)
+	at org.apache.fleece.core.JsonBaseStreamParser.next0(JsonBaseStreamParser.java:306)
+	at org.apache.fleece.core.JsonBaseStreamParser.next(JsonBaseStreamParser.java:284)
+	at org.apache.fleece.core.jmh.benchmark.ByteBufferStreamparserBenchmark.parse(ByteBufferStreamparserBenchmark.java:37)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.widget_Reader(BenchmarkRawStreamParser.java:134)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_widget_Reader.widget_Reader_avgt_jmhLoop(ByteBufferStreamparserBenchmark_widget_Reader.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.ByteBufferStreamparserBenchmark_widget_Reader.widget_Reader_AverageTime(ByteBufferStreamparserBenchmark_widget_Reader.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49310]
+# Run progress: 37,50% complete, ETA 00:02:49
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.actionLabel
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 17,906 us/op
+# Warmup Iteration   2: 11,942 us/op
+Iteration   1: 10,417 us/op
+Iteration   2: 10,657 us/op
+Iteration   3: 11,063 us/op
+
+Result: 10,712 ±(99.9%) 5,966 us/op [Average]
+  Statistics: (min, avg, max) = (10,417, 10,712, 11,063), stdev = 0,327
+  Confidence interval (99.9%): [4,746, 16,678]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49313]
+# Run progress: 39,06% complete, ETA 00:02:48
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.actionLabel_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 12,251 us/op
+# Warmup Iteration   2: 7,999 us/op
+Iteration   1: 8,247 us/op
+Iteration   2: 8,952 us/op
+Iteration   3: 8,698 us/op
+
+Result: 8,632 ±(99.9%) 6,514 us/op [Average]
+  Statistics: (min, avg, max) = (8,247, 8,632, 8,952), stdev = 0,357
+  Confidence interval (99.9%): [2,118, 15,147]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49317]
+# Run progress: 40,63% complete, ETA 00:02:47
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.citmCatalog
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 17688,028 us/op
+# Warmup Iteration   2: 14807,044 us/op
+Iteration   1: 15674,894 us/op
+Iteration   2: 14829,215 us/op
+Iteration   3: 14629,263 us/op
+
+Result: 15044,457 ±(99.9%) 10126,220 us/op [Average]
+  Statistics: (min, avg, max) = (14629,263, 15044,457, 15674,894), stdev = 555,052
+  Confidence interval (99.9%): [4918,237, 25170,678]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49321]
+# Run progress: 42,19% complete, ETA 00:02:45
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.citmCatalog_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 13170,363 us/op
+# Warmup Iteration   2: 12269,922 us/op
+Iteration   1: 11595,568 us/op
+Iteration   2: 12265,439 us/op
+Iteration   3: 10933,964 us/op
+
+Result: 11598,323 ±(99.9%) 12145,601 us/op [Average]
+  Statistics: (min, avg, max) = (10933,964, 11598,323, 12265,439), stdev = 665,741
+  Confidence interval (99.9%): [-547,278, 23743,925]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49323]
+# Run progress: 43,75% complete, ETA 00:02:42
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.genhuge
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 15714,748 us/op
+# Warmup Iteration   2: 12812,287 us/op
+Iteration   1: 11743,514 us/op
+Iteration   2: 11694,325 us/op
+Iteration   3: 11964,732 us/op
+
+Result: 11800,857 ±(99.9%) 2627,744 us/op [Average]
+  Statistics: (min, avg, max) = (11694,325, 11800,857, 11964,732), stdev = 144,035
+  Confidence interval (99.9%): [9173,113, 14428,600]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49331]
+# Run progress: 45,31% complete, ETA 00:02:40
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.genhuge_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 13378,200 us/op
+# Warmup Iteration   2: 11014,837 us/op
+Iteration   1: 10081,075 us/op
+Iteration   2: 10062,705 us/op
+Iteration   3: 10710,769 us/op
+
+Result: 10284,849 ±(99.9%) 6731,412 us/op [Average]
+  Statistics: (min, avg, max) = (10062,705, 10284,849, 10710,769), stdev = 368,971
+  Confidence interval (99.9%): [3553,438, 17016,261]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49333]
+# Run progress: 46,88% complete, ETA 00:02:37
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.genmedium
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 158,971 us/op
+# Warmup Iteration   2: 118,964 us/op
+Iteration   1: 112,434 us/op
+Iteration   2: 145,250 us/op
+Iteration   3: 118,605 us/op
+
+Result: 125,429 ±(99.9%) 318,171 us/op [Average]
+  Statistics: (min, avg, max) = (112,434, 125,429, 145,250), stdev = 17,440
+  Confidence interval (99.9%): [-192,742, 443,600]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49337]
+# Run progress: 48,44% complete, ETA 00:02:34
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.genmedium_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 102,681 us/op
+# Warmup Iteration   2: 81,670 us/op
+Iteration   1: 88,445 us/op
+Iteration   2: 82,063 us/op
+Iteration   3: 79,601 us/op
+
+Result: 83,370 ±(99.9%) 83,275 us/op [Average]
+  Statistics: (min, avg, max) = (79,601, 83,370, 88,445), stdev = 4,565
+  Confidence interval (99.9%): [0,095, 166,644]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49339]
+# Run progress: 50,00% complete, ETA 00:02:31
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.medium
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 31,370 us/op
+# Warmup Iteration   2: 22,284 us/op
+Iteration   1: 20,842 us/op
+Iteration   2: 21,898 us/op
+Iteration   3: 20,789 us/op
+
+Result: 21,177 ±(99.9%) 11,412 us/op [Average]
+  Statistics: (min, avg, max) = (20,789, 21,177, 21,898), stdev = 0,626
+  Confidence interval (99.9%): [9,765, 32,588]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49343]
+# Run progress: 51,56% complete, ETA 00:02:28
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.medium_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 25,436 us/op
+# Warmup Iteration   2: 18,792 us/op
+Iteration   1: 17,409 us/op
+Iteration   2: 17,438 us/op
+Iteration   3: 18,982 us/op
+
+Result: 17,943 ±(99.9%) 16,420 us/op [Average]
+  Statistics: (min, avg, max) = (17,409, 17,943, 18,982), stdev = 0,900
+  Confidence interval (99.9%): [1,523, 34,363]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49347]
+# Run progress: 53,13% complete, ETA 00:02:24
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.menu
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 9,407 us/op
+# Warmup Iteration   2: 5,511 us/op
+Iteration   1: 5,141 us/op
+Iteration   2: 5,225 us/op
+Iteration   3: 5,413 us/op
+
+Result: 5,260 ±(99.9%) 2,542 us/op [Average]
+  Statistics: (min, avg, max) = (5,141, 5,260, 5,413), stdev = 0,139
+  Confidence interval (99.9%): [2,718, 7,802]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49351]
+# Run progress: 54,69% complete, ETA 00:02:21
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.menu_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 5,916 us/op
+# Warmup Iteration   2: 3,938 us/op
+Iteration   1: 4,168 us/op
+Iteration   2: 4,276 us/op
+Iteration   3: 4,404 us/op
+
+Result: 4,283 ±(99.9%) 2,158 us/op [Average]
+  Statistics: (min, avg, max) = (4,168, 4,283, 4,404), stdev = 0,118
+  Confidence interval (99.9%): [2,125, 6,441]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49356]
+# Run progress: 56,25% complete, ETA 00:02:17
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.sgml
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 13,957 us/op
+# Warmup Iteration   2: 8,453 us/op
+Iteration   1: 8,811 us/op
+Iteration   2: 8,250 us/op
+Iteration   3: 8,286 us/op
+
+Result: 8,449 ±(99.9%) 5,733 us/op [Average]
+  Statistics: (min, avg, max) = (8,250, 8,449, 8,811), stdev = 0,314
+  Confidence interval (99.9%): [2,716, 14,182]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49358]
+# Run progress: 57,81% complete, ETA 00:02:13
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.sgml_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 9,978 us/op
+# Warmup Iteration   2: 6,822 us/op
+Iteration   1: 6,668 us/op
+Iteration   2: 6,438 us/op
+Iteration   3: 6,642 us/op
+
+Result: 6,583 ±(99.9%) 2,301 us/op [Average]
+  Statistics: (min, avg, max) = (6,438, 6,583, 6,668), stdev = 0,126
+  Confidence interval (99.9%): [4,281, 8,884]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49362]
+# Run progress: 59,38% complete, ETA 00:02:09
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.small
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 5,711 us/op
+# Warmup Iteration   2: 3,267 us/op
+Iteration   1: 3,288 us/op
+Iteration   2: 3,299 us/op
+Iteration   3: 3,368 us/op
+
+Result: 3,318 ±(99.9%) 0,790 us/op [Average]
+  Statistics: (min, avg, max) = (3,288, 3,318, 3,368), stdev = 0,043
+  Confidence interval (99.9%): [2,528, 4,109]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49364]
+# Run progress: 60,94% complete, ETA 00:02:05
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.small_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 3,918 us/op
+# Warmup Iteration   2: 2,487 us/op
+Iteration   1: 2,473 us/op
+Iteration   2: 2,494 us/op
+Iteration   3: 2,652 us/op
+
+Result: 2,540 ±(99.9%) 1,782 us/op [Average]
+  Statistics: (min, avg, max) = (2,473, 2,540, 2,652), stdev = 0,098
+  Confidence interval (99.9%): [0,758, 4,322]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49377]
+# Run progress: 62,50% complete, ETA 00:02:01
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.webxml
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 54,767 us/op
+# Warmup Iteration   2: 48,389 us/op
+Iteration   1: 38,690 us/op
+Iteration   2: 38,383 us/op
+Iteration   3: 40,645 us/op
+
+Result: 39,239 ±(99.9%) 22,384 us/op [Average]
+  Statistics: (min, avg, max) = (38,383, 39,239, 40,645), stdev = 1,227
+  Confidence interval (99.9%): [16,855, 61,623]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49381]
+# Run progress: 64,06% complete, ETA 00:01:56
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.webxml_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 42,665 us/op
+# Warmup Iteration   2: 32,649 us/op
+Iteration   1: 33,279 us/op
+Iteration   2: 30,606 us/op
+Iteration   3: 30,096 us/op
+
+Result: 31,327 ±(99.9%) 31,185 us/op [Average]
+  Statistics: (min, avg, max) = (30,096, 31,327, 33,279), stdev = 1,709
+  Confidence interval (99.9%): [0,142, 62,512]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49384]
+# Run progress: 65,63% complete, ETA 00:01:52
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.widget
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 18,318 us/op
+# Warmup Iteration   2: 11,315 us/op
+Iteration   1: 10,721 us/op
+Iteration   2: 10,427 us/op
+Iteration   3: 10,687 us/op
+
+Result: 10,612 ±(99.9%) 2,926 us/op [Average]
+  Statistics: (min, avg, max) = (10,427, 10,612, 10,721), stdev = 0,160
+  Confidence interval (99.9%): [7,685, 13,538]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49389]
+# Run progress: 67,19% complete, ETA 00:01:47
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.CharBufferStreamparserBenchmark.widget_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 12,624 us/op
+# Warmup Iteration   2: 7,844 us/op
+Iteration   1: 7,831 us/op
+Iteration   2: 8,049 us/op
+Iteration   3: 8,063 us/op
+
+Result: 7,981 ±(99.9%) 2,376 us/op [Average]
+  Statistics: (min, avg, max) = (7,831, 7,981, 8,063), stdev = 0,130
+  Confidence interval (99.9%): [5,605, 10,357]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49392]
+# Run progress: 68,75% complete, ETA 00:01:43
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.actionLabel
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 18,243 us/op
+# Warmup Iteration   2: 10,000 us/op
+Iteration   1: 9,781 us/op
+Iteration   2: 9,602 us/op
+Iteration   3: 10,330 us/op
+
+Result: 9,905 ±(99.9%) 6,924 us/op [Average]
+  Statistics: (min, avg, max) = (9,602, 9,905, 10,330), stdev = 0,380
+  Confidence interval (99.9%): [2,981, 16,828]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49396]
+# Run progress: 70,31% complete, ETA 00:01:38
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.actionLabel_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 11,659 us/op
+# Warmup Iteration   2: 8,685 us/op
+Iteration   1: 8,663 us/op
+Iteration   2: 9,189 us/op
+Iteration   3: 9,150 us/op
+
+Result: 9,001 ±(99.9%) 5,344 us/op [Average]
+  Statistics: (min, avg, max) = (8,663, 9,001, 9,189), stdev = 0,293
+  Confidence interval (99.9%): [3,657, 14,344]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49398]
+# Run progress: 71,88% complete, ETA 00:01:33
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.citmCatalog
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: javax.json.stream.JsonParsingException: expecting end of structure or comma but got e
+	at org.apache.fleece.core.JsonStreamParser.hasNext(JsonStreamParser.java:125)
+	at org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.parse(OrigStreamparserBenchmark.java:18)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.citmCatalog(BenchmarkRawStreamParser.java:69)
+	at org.apache.fleece.core.jmh.benchmark.generated.OrigStreamparserBenchmark_citmCatalog.citmCatalog_avgt_jmhLoop(OrigStreamparserBenchmark_citmCatalog.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.OrigStreamparserBenchmark_citmCatalog.citmCatalog_AverageTime(OrigStreamparserBenchmark_citmCatalog.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49402]
+# Run progress: 73,44% complete, ETA 00:01:27
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.citmCatalog_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: javax.json.stream.JsonParsingException: expecting end of structure or comma but got r
+	at org.apache.fleece.core.JsonStreamParser.hasNext(JsonStreamParser.java:125)
+	at org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.parse(OrigStreamparserBenchmark.java:34)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.citmCatalog_Reader(BenchmarkRawStreamParser.java:74)
+	at org.apache.fleece.core.jmh.benchmark.generated.OrigStreamparserBenchmark_citmCatalog_Reader.citmCatalog_Reader_avgt_jmhLoop(OrigStreamparserBenchmark_citmCatalog_Reader.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.OrigStreamparserBenchmark_citmCatalog_Reader.citmCatalog_Reader_AverageTime(OrigStreamparserBenchmark_citmCatalog_Reader.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49406]
+# Run progress: 75,00% complete, ETA 00:01:20
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.genhuge
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.StringIndexOutOfBoundsException: String index out of range: -8177
+	at java.lang.String.<init>(String.java:197)
+	at org.apache.fleece.core.JsonStreamParser$ValueBuilder.readValue(JsonStreamParser.java:378)
+	at org.apache.fleece.core.JsonStreamParser.hasNext(JsonStreamParser.java:97)
+	at org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.parse(OrigStreamparserBenchmark.java:18)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.genhuge(BenchmarkRawStreamParser.java:141)
+	at org.apache.fleece.core.jmh.benchmark.generated.OrigStreamparserBenchmark_genhuge.genhuge_avgt_jmhLoop(OrigStreamparserBenchmark_genhuge.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.OrigStreamparserBenchmark_genhuge.genhuge_AverageTime(OrigStreamparserBenchmark_genhuge.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49408]
+# Run progress: 76,56% complete, ETA 00:01:14
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.genhuge_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: <failure>
+
+java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:203)
+	at org.openjdk.jmh.runner.LoopBenchmarkHandler$BenchmarkTask.call(LoopBenchmarkHandler.java:185)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: javax.json.stream.JsonParsingException: expecting end of structure or comma but got n
+	at org.apache.fleece.core.JsonStreamParser.hasNext(JsonStreamParser.java:125)
+	at org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.parse(OrigStreamparserBenchmark.java:34)
+	at org.apache.fleece.core.jmh.benchmark.BenchmarkRawStreamParser.genhuge_Reader(BenchmarkRawStreamParser.java:165)
+	at org.apache.fleece.core.jmh.benchmark.generated.OrigStreamparserBenchmark_genhuge_Reader.genhuge_Reader_avgt_jmhLoop(OrigStreamparserBenchmark_genhuge_Reader.java:180)
+	at org.apache.fleece.core.jmh.benchmark.generated.OrigStreamparserBenchmark_genhuge_Reader.genhuge_Reader_AverageTime(OrigStreamparserBenchmark_genhuge_Reader.java:144)
+	... 10 more
+
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49410]
+# Run progress: 78,13% complete, ETA 00:01:08
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.genmedium
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 146,708 us/op
+# Warmup Iteration   2: 108,470 us/op
+Iteration   1: 108,251 us/op
+Iteration   2: 114,075 us/op
+Iteration   3: 99,363 us/op
+
+Result: 107,229 ±(99.9%) 135,164 us/op [Average]
+  Statistics: (min, avg, max) = (99,363, 107,229, 114,075), stdev = 7,409
+  Confidence interval (99.9%): [-27,934, 242,393]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49412]
+# Run progress: 79,69% complete, ETA 00:01:04
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.genmedium_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 116,238 us/op
+# Warmup Iteration   2: 99,656 us/op
+Iteration   1: 88,159 us/op
+Iteration   2: 87,020 us/op
+Iteration   3: 89,473 us/op
+
+Result: 88,217 ±(99.9%) 22,390 us/op [Average]
+  Statistics: (min, avg, max) = (87,020, 88,217, 89,473), stdev = 1,227
+  Confidence interval (99.9%): [65,828, 110,607]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49417]
+# Run progress: 81,25% complete, ETA 00:00:59
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.medium
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 27,925 us/op
+# Warmup Iteration   2: 22,142 us/op
+Iteration   1: 18,735 us/op
+Iteration   2: 19,111 us/op
+Iteration   3: 19,324 us/op
+
+Result: 19,057 ±(99.9%) 5,437 us/op [Average]
+  Statistics: (min, avg, max) = (18,735, 19,057, 19,324), stdev = 0,298
+  Confidence interval (99.9%): [13,620, 24,494]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49423]
+# Run progress: 82,81% complete, ETA 00:00:54
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.medium_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 18,027 us/op
+# Warmup Iteration   2: 14,941 us/op
+Iteration   1: 14,893 us/op
+Iteration   2: 13,576 us/op
+Iteration   3: 16,409 us/op
+
+Result: 14,960 ±(99.9%) 25,865 us/op [Average]
+  Statistics: (min, avg, max) = (13,576, 14,960, 16,409), stdev = 1,418
+  Confidence interval (99.9%): [-10,906, 40,825]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49427]
+# Run progress: 84,38% complete, ETA 00:00:50
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.menu
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 6,972 us/op
+# Warmup Iteration   2: 4,473 us/op
+Iteration   1: 4,384 us/op
+Iteration   2: 4,516 us/op
+Iteration   3: 4,206 us/op
+
+Result: 4,368 ±(99.9%) 2,837 us/op [Average]
+  Statistics: (min, avg, max) = (4,206, 4,368, 4,516), stdev = 0,156
+  Confidence interval (99.9%): [1,531, 7,205]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49431]
+# Run progress: 85,94% complete, ETA 00:00:45
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.menu_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 4,746 us/op
+# Warmup Iteration   2: 3,332 us/op
+Iteration   1: 3,795 us/op
+Iteration   2: 3,251 us/op
+Iteration   3: 3,401 us/op
+
+Result: 3,483 ±(99.9%) 5,125 us/op [Average]
+  Statistics: (min, avg, max) = (3,251, 3,483, 3,795), stdev = 0,281
+  Confidence interval (99.9%): [-1,643, 8,608]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49433]
+# Run progress: 87,50% complete, ETA 00:00:40
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.sgml
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 11,071 us/op
+# Warmup Iteration   2: 7,916 us/op
+Iteration   1: 7,072 us/op
+Iteration   2: 7,525 us/op
+Iteration   3: 7,300 us/op
+
+Result: 7,299 ±(99.9%) 4,133 us/op [Average]
+  Statistics: (min, avg, max) = (7,072, 7,299, 7,525), stdev = 0,227
+  Confidence interval (99.9%): [3,166, 11,432]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49443]
+# Run progress: 89,06% complete, ETA 00:00:35
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.sgml_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 7,817 us/op
+# Warmup Iteration   2: 6,027 us/op
+Iteration   1: 5,519 us/op
+Iteration   2: 5,235 us/op
+Iteration   3: 5,229 us/op
+
+Result: 5,328 ±(99.9%) 3,026 us/op [Average]
+  Statistics: (min, avg, max) = (5,229, 5,328, 5,519), stdev = 0,166
+  Confidence interval (99.9%): [2,302, 8,354]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49449]
+# Run progress: 90,63% complete, ETA 00:00:30
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.small
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 4,248 us/op
+# Warmup Iteration   2: 2,597 us/op
+Iteration   1: 2,565 us/op
+Iteration   2: 2,454 us/op
+Iteration   3: 2,858 us/op
+
+Result: 2,626 ±(99.9%) 3,806 us/op [Average]
+  Statistics: (min, avg, max) = (2,454, 2,626, 2,858), stdev = 0,209
+  Confidence interval (99.9%): [-1,180, 6,432]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49453]
+# Run progress: 92,19% complete, ETA 00:00:25
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.small_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 2,457 us/op
+# Warmup Iteration   2: 1,596 us/op
+Iteration   1: 1,609 us/op
+Iteration   2: 1,922 us/op
+Iteration   3: 1,767 us/op
+
+Result: 1,766 ±(99.9%) 2,856 us/op [Average]
+  Statistics: (min, avg, max) = (1,609, 1,766, 1,922), stdev = 0,157
+  Confidence interval (99.9%): [-1,090, 4,622]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49458]
+# Run progress: 93,75% complete, ETA 00:00:20
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.webxml
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 68,697 us/op
+# Warmup Iteration   2: 44,385 us/op
+Iteration   1: 42,195 us/op
+Iteration   2: 34,285 us/op
+Iteration   3: 33,825 us/op
+
+Result: 36,769 ±(99.9%) 85,841 us/op [Average]
+  Statistics: (min, avg, max) = (33,825, 36,769, 42,195), stdev = 4,705
+  Confidence interval (99.9%): [-49,072, 122,610]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49461]
+# Run progress: 95,31% complete, ETA 00:00:15
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.webxml_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 36,029 us/op
+# Warmup Iteration   2: 32,155 us/op
+Iteration   1: 28,973 us/op
+Iteration   2: 28,029 us/op
+Iteration   3: 27,861 us/op
+
+Result: 28,288 ±(99.9%) 10,942 us/op [Average]
+  Statistics: (min, avg, max) = (27,861, 28,288, 28,973), stdev = 0,600
+  Confidence interval (99.9%): [17,346, 39,230]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49467]
+# Run progress: 96,88% complete, ETA 00:00:10
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.widget
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 17,034 us/op
+# Warmup Iteration   2: 9,165 us/op
+Iteration   1: 11,446 us/op
+Iteration   2: 8,847 us/op
+Iteration   3: 9,383 us/op
+
+Result: 9,892 ±(99.9%) 25,035 us/op [Average]
+  Statistics: (min, avg, max) = (8,847, 9,892, 11,446), stdev = 1,372
+  Confidence interval (99.9%): [-15,143, 34,927]
+
+
+Forking 1 times using command: [C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe, -XX:CompileCommandFile=C:\Users\salyh\AppData\Local\Temp\jmh2878652158294071855compilecommand, -cp, "C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\test-classes;C:\Users\salyh\git\fleece2\fleece_tmp\fleece-core\target\classes;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-core\0.9.1\jmh-core-0.9.1.jar;C:\Users\salyh\.m2\repository\net\sf\jopt-simple\jopt-simple\4.6\jopt-simple-4.6.jar;C:\Users\salyh\.m2\repository\org\apache\commons\commons-math3\3.2\commons-math3-3.2.jar;C:\Users\salyh\.m2\repository\org\openjdk\jmh\jmh-generator-annprocess\0.9.1\jmh-generator-annprocess-0.9.1.jar;C:\Users\salyh\.m2\repository\commons-io\commons-io\2.4\commons-io-2.4.jar;C:\Users\salyh\.m2\repository\org\apache\geronimo\specs\geronimo-json_1.0_spec\1.0-SNAPSHOT\geronimo-json_1.0_spec-1.0-SNAPSHOT.jar;C:\Users\salyh\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\salyh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar", org.openjdk.jmh.runner.ForkedMain, 127.0.0.1, 49474]
+# Run progress: 98,44% complete, ETA 00:00:05
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: org.apache.fleece.core.jmh.benchmark.OrigStreamparserBenchmark.widget_Reader
+# VM invoker: C:\Program Files\Java\jdk1.7.0_55\jre\bin\java.exe
+# VM options: <none>
+# Fork: 1 of 1
+# Warmup Iteration   1: 10,255 us/op
+# Warmup Iteration   2: 7,491 us/op
+Iteration   1: 7,220 us/op
+Iteration   2: 7,605 us/op
+Iteration   3: 7,986 us/op
+
+Result: 7,604 ±(99.9%) 6,989 us/op [Average]
+  Statistics: (min, avg, max) = (7,220, 7,604, 7,986), stdev = 0,383
+  Confidence interval (99.9%): [0,615, 14,593]
+
+
+# Run complete. Total time: 00:05:33
+
+Benchmark                                                          Mode   Samples        Score  Score error    Units
+o.a.f.c.j.b.BenchmarkStringsCompact.normalWithUnicode              avgt         3    12254,695     4638,817    us/op
+o.a.f.c.j.b.BenchmarkStringsCompact.normalWithoutUnicode           avgt         3    14617,991    19355,935    us/op
+o.a.f.c.j.b.BenchmarkStringsCompact.optimizedWithUnicode           avgt         3    10968,302     4283,380    us/op
+o.a.f.c.j.b.BenchmarkStringsCompact.optimizedWithoutUnicode        avgt         3    14568,473    13751,516    us/op
+o.a.f.c.j.b.ByteBufferStreamparserBenchmark.actionLabel            avgt         3        8,410        5,312    us/op
+o.a.f.c.j.b.ByteBufferStreamparserBenchmark.citmCatalog            avgt         3    12949,994     6956,509    us/op
+o.a.f.c.j.b.ByteBufferStreamparserBenchmark.genhuge                avgt         3    11468,687     7619,744    us/op
+o.a.f.c.j.b.ByteBufferStreamparserBenchmark.genmedium              avgt         3      111,369      304,848    us/op
+o.a.f.c.j.b.ByteBufferStreamparserBenchmark.medium                 avgt         3       18,663       19,908    us/op
+o.a.f.c.j.b.ByteBufferStreamparserBenchmark.menu                   avgt         3        3,682        2,487    us/op
+o.a.f.c.j.b.ByteBufferStreamparserBenchmark.sgml                   avgt         3        6,461        4,414    us/op
+o.a.f.c.j.b.ByteBufferStreamparserBenchmark.small                  avgt         3        2,212        1,904    us/op
+o.a.f.c.j.b.ByteBufferStreamparserBenchmark.webxml                 avgt         3       30,831       16,494    us/op
+o.a.f.c.j.b.ByteBufferStreamparserBenchmark.widget                 avgt         3        8,244        2,964    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.actionLabel            avgt         3       10,712        5,966    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.actionLabel_Reader     avgt         3        8,632        6,514    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.citmCatalog            avgt         3    15044,457    10126,220    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.citmCatalog_Reader     avgt         3    11598,323    12145,601    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.genhuge                avgt         3    11800,857     2627,744    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.genhuge_Reader         avgt         3    10284,849     6731,412    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.genmedium              avgt         3      125,429      318,171    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.genmedium_Reader       avgt         3       83,370       83,275    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.medium                 avgt         3       21,177       11,412    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.medium_Reader          avgt         3       17,943       16,420    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.menu                   avgt         3        5,260        2,542    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.menu_Reader            avgt         3        4,283        2,158    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.sgml                   avgt         3        8,449        5,733    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.sgml_Reader            avgt         3        6,583        2,301    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.small                  avgt         3        3,318        0,790    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.small_Reader           avgt         3        2,540        1,782    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.webxml                 avgt         3       39,239       22,384    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.webxml_Reader          avgt         3       31,327       31,185    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.widget                 avgt         3       10,612        2,926    us/op
+o.a.f.c.j.b.CharBufferStreamparserBenchmark.widget_Reader          avgt         3        7,981        2,376    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.actionLabel                  avgt         3        9,905        6,924    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.actionLabel_Reader           avgt         3        9,001        5,344    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.genmedium                    avgt         3      107,229      135,164    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.genmedium_Reader             avgt         3       88,217       22,390    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.medium                       avgt         3       19,057        5,437    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.medium_Reader                avgt         3       14,960       25,865    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.menu                         avgt         3        4,368        2,837    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.menu_Reader                  avgt         3        3,483        5,125    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.sgml                         avgt         3        7,299        4,133    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.sgml_Reader                  avgt         3        5,328        3,026    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.small                        avgt         3        2,626        3,806    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.small_Reader                 avgt         3        1,766        2,856    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.webxml                       avgt         3       36,769       85,841    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.webxml_Reader                avgt         3       28,288       10,942    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.widget                       avgt         3        9,892       25,035    us/op
+o.a.f.c.j.b.OrigStreamparserBenchmark.widget_Reader                avgt         3        7,604        6,989    us/op

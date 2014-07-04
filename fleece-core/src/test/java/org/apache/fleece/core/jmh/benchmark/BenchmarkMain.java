@@ -34,15 +34,10 @@ public class BenchmarkMain {
     
     public static void main(String[] args) throws Exception {
     	run(1,1,2,3);
-    	//run(1,4,3,4);
-    	//run(2,4,3,4);
-    	//run(2,16,3,5);
+    	run(1,4,3,4);
+    	run(2,4,3,4);
+    	run(2,16,3,5);
     }
-    
-    private static final int forks = 1;
-    private static final int threads = 4;
-    private static final int warmupit=3;
-    private static final int measureit=4;
 
     public static void run(int forks ,int threads,int warmupit,int measureit ) throws Exception {
 
