@@ -4,16 +4,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channel;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
 import java.nio.charset.Charset;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 
 
-/*public class JsonByteBufferStreamParser extends JsonBaseStreamParser {
+/*public class JsonNioBufferStreamParser extends JsonBaseStreamParser {
 
-    private final byte[] buffer0 = new byte[Integer.getInteger("org.apache.fleece.default-char-buffer", 8192*2)];
-    private final InputStream in;
+    //http://stackoverflow.com/questions/13120585/decoding-characters-in-java-why-is-it-faster-with-a-reader-than-using-buffers
+    private final ReadableByteChannel channel;
+    private final ByteBuffer bbuf = ByteBuffer.allocate(Integer.getInteger("org.apache.fleece.default-char-buffer", 8192));
     private int pointer=-1;
     private int avail;
     private char mark;
@@ -22,26 +27,25 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
     
     //Test increment buffer sizes
     
-    public JsonByteBufferStreamParser(final Reader reader, final int maxStringLength) {
-        super(maxStringLength);
-        throw new NotImplementedException();
-       
+    public JsonNioBufferStreamParser(final Reader reader, final int maxStringLength) {
+       super(maxStringLength);
+       throw new NotImplementedException();
     }
 
 
-    public JsonByteBufferStreamParser(final InputStream stream, final int maxStringLength) {
-        super(maxStringLength);
-        in=stream;
+    public JsonNioBufferStreamParser(final InputStream stream, final int maxStringLength) {
+        this(stream, Charset.defaultCharset(), maxStringLength);
     }
 
-    public JsonByteBufferStreamParser(final InputStream in, final Charset charset, final int maxStringLength) {
-        this(in, maxStringLength);
+    public JsonNioBufferStreamParser(final InputStream in, final Charset charset, final int maxStringLength) {
+        super(maxStringLength);
+        channel = Channels.newChannel(in);
     }
 
     @Override
     protected char readNextChar() throws IOException {
         
-        if(buffer0.length==0) throw new IllegalArgumentException("buffer length must be greater than zero");
+        if(bbuf.capacity() <=0) throw new IllegalArgumentException("buffer length must be greater than zero");
         
         if(reset)
         {
@@ -53,7 +57,9 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
         {
             if(log)System.out.println("avail:"+avail+"/pointer:"+pointer);
            
-            avail = in.read(buffer0, 0, buffer0.length);
+            avail = channel.read(bbuf);
+            //decoder.decode(bbuf, cbuf, true);
+            //decoder.flush(cbuf);
             
             pointer=-1;
             
@@ -69,8 +75,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
         
         pointer++;
         avail--;
-        B
-        return buffer0[pointer];
+        return bbuf.
         
         
     }
@@ -100,7 +105,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
     @Override
     protected void closeUnderlyingSource() throws IOException {
-        if(in!=null)in.close();
+        if(channel!=null)channel.close();
 
     }
 

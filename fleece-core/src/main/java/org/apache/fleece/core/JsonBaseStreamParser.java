@@ -28,14 +28,17 @@ import java.io.Reader;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
 import java.util.NoSuchElementException;
+import java.util.concurrent.locks.ReentrantLock;
 
 import javax.json.JsonException;
 import javax.json.stream.JsonLocation;
 import javax.json.stream.JsonParser;
 import javax.json.stream.JsonParsingException;
+import javax.management.RuntimeErrorException;
 
 public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAwareJsonParser {
 
+    //private final ReentrantLock lock = new ReentrantLock();
     protected boolean log = false;
     private final int maxStringSize;
     
@@ -93,15 +96,28 @@ public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAw
     
     
 
-    @Override
-    public final boolean hasNext() {
+ 
+    private final boolean hasNext0() {
+        
         if(event == null) return true;
         
         return !(openArrays==0 && openObjects==0);
         
     }
-
     
+    @Override
+    public final boolean hasNext() {
+       
+       // if(!lock.tryLock()) throw new RuntimeException("try to access in mt");
+     // try{
+            return hasNext0();
+         //  }finally
+         //  {
+         //  lock.unlock();
+         //  }
+        
+    }
+
 
     private static boolean isAsciiDigit(final char value) {
         return value >= ZERO && value <= NINE;
@@ -250,7 +266,23 @@ public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAw
     }*/
     
     @Override
-    public Event next() {
+    public final Event next() {
+        
+     // if(!lock.tryLock()) throw new RuntimeException("try to access in mt");
+     // try{
+            return next0();
+         // }finally
+         // {
+         //     lock.unlock();
+         // }
+    }
+    
+    
+    private final Event next0() {
+        
+       
+        
+        
         
         int dosCount =0;
         lastEvent = event;
@@ -735,7 +767,7 @@ public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAw
         }
     }
 
-    public static JsonLocation location(final JsonParser parser) {
+    private static JsonLocation location(final JsonParser parser) {
         if (JsonBaseStreamParser.class.isInstance(parser)) {
             return JsonBaseStreamParser.class.cast(parser).createLocation();
         }

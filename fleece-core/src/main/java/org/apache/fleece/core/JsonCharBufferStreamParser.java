@@ -6,14 +6,12 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.Charset;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 
+public class JsonCharBufferStreamParser extends JsonBaseStreamParser {
 
-/*public class JsonByteBufferStreamParser extends JsonBaseStreamParser {
-
-    private final byte[] buffer0 = new byte[Integer.getInteger("org.apache.fleece.default-char-buffer", 8192*2)];
-    private final InputStream in;
+    private final char[] buffer0 = new char[Integer.getInteger("org.apache.fleece.default-char-buffer", 8192)];
+    private final Reader in;
     private int pointer=-1;
     private int avail;
     private char mark;
@@ -22,20 +20,19 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
     
     //Test increment buffer sizes
     
-    public JsonByteBufferStreamParser(final Reader reader, final int maxStringLength) {
+    public JsonCharBufferStreamParser(final Reader reader, final int maxStringLength) {
         super(maxStringLength);
-        throw new NotImplementedException();
+        in = reader;
        
     }
 
 
-    public JsonByteBufferStreamParser(final InputStream stream, final int maxStringLength) {
-        super(maxStringLength);
-        in=stream;
+    public JsonCharBufferStreamParser(final InputStream stream, final int maxStringLength) {
+        this(new InputStreamReader(stream), maxStringLength);
     }
 
-    public JsonByteBufferStreamParser(final InputStream in, final Charset charset, final int maxStringLength) {
-        this(in, maxStringLength);
+    public JsonCharBufferStreamParser(final InputStream in, final Charset charset, final int maxStringLength) {
+        this(new InputStreamReader(in, charset), maxStringLength);
     }
 
     @Override
@@ -69,7 +66,6 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
         
         pointer++;
         avail--;
-        B
         return buffer0[pointer];
         
         
@@ -104,4 +100,4 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
     }
 
-}*/
+}

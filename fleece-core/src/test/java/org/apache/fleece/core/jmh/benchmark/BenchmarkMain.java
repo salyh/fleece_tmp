@@ -16,6 +16,7 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.infra.Blackhole;
+import org.openjdk.jmh.results.format.ResultFormatType;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
@@ -34,14 +35,19 @@ public class BenchmarkMain {
     public static void main(String[] args) throws RunnerException {
 
         Options opt = new OptionsBuilder()
-            .include(".*Raw.*")
+            .include(".*StringsCo.*")
             .forks(2)
             .warmupIterations(3)
             .measurementIterations(3)
             .threads(16)
-            .mode(Mode.Throughput)
-            .timeUnit(TimeUnit.SECONDS)
+            .mode(Mode.AverageTime)
+            .timeUnit(TimeUnit.MILLISECONDS)
             .verbosity(VerboseMode.EXTRA)
+            //.syncIterations(value)
+            .resultFormat(ResultFormatType.TEXT)
+            //.result("benchmark_jmh_result.txt")
+            //.output("benchmark_jmh_log.txt")
+            
             .build();
 
         new Runner(opt).run();

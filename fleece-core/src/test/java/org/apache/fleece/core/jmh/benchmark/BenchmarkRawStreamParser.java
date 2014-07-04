@@ -16,7 +16,7 @@ import javax.json.stream.JsonParser;
 import javax.json.stream.JsonParser.Event;
 import javax.json.stream.JsonParserFactory;
 
-import org.apache.fleece.core.JsonByteBufferStreamParser;
+import org.apache.fleece.core.JsonCharBufferStreamParser;
 import org.apache.fleece.core.JsonParserCurrent;
 import org.apache.fleece.core.JsonSimpleStreamParser;
 import org.apache.fleece.core.JsonStreamParser;
@@ -33,9 +33,7 @@ import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 @State(Scope.Benchmark)
-@BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.SECONDS)
-public class BenchmarkRawStreamParser {
+public abstract class BenchmarkRawStreamParser {
 
     /*
      * Benchmark                                            Mode   Samples        Score  Score error    Units
@@ -50,42 +48,11 @@ o.a.f.c.j.b.BenchmarkRawStreamParser.widget         thrpt         5    47033,145
 
  
     //http://java-performance.info/jmh/
-    private  JsonParserFactory parserFactory = Json.createParserFactory(Collections.EMPTY_MAP);
+ 
 
-    public BenchmarkRawStreamParser(JsonParserFactory parserFactory) {
-        super();
-        this.parserFactory = parserFactory;
-    }
-
-    private Object parse(InputStream stream) throws Exception {
-        JsonParser parser = new JsonParserCurrent(stream, 8193);
-        
-        while(parser.hasNext())
-        {
-            Event e = parser.next();
-            
-            //use the value
-            if(e==null) throw new NullPointerException();
-            
-        }
-        
-        return parser;
-    }
+    protected abstract Object parse(InputStream stream) throws Exception ;
     
-    private Object parse(Reader reader) throws Exception {
-        JsonParser parser = new JsonParserCurrent(reader, 8193);
-        
-        while(parser.hasNext())
-        {
-            Event e = parser.next();
-            
-          //use the value
-            if(e==null) throw new NullPointerException();
-        }
-        
-        return parser;
-    }
-
+    protected abstract Object parse(Reader reader) throws Exception ;
     @Benchmark
     public void actionLabel(Blackhole bh) throws Exception {
         bh.consume(parse(new ByteArrayInputStream(Buffers.ACTION_LABEL_BYTES)));
@@ -168,4 +135,16 @@ o.a.f.c.j.b.BenchmarkRawStreamParser.widget         thrpt         5    47033,145
 
     }
 
+    
+    @Benchmark
+    public void small(Blackhole bh) throws Exception {
+        bh.consume(parse(new ByteArrayInputStream(Buffers.SMALL_BYTES)));
+
+    }
+    
+    @Benchmark
+    public void small_Reader(Blackhole bh) throws Exception {
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_SMALL_BYTES)));
+
+    }
 }

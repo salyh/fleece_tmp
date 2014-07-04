@@ -55,7 +55,21 @@ public interface JsonChars {
     char BACKSPACE = '\b';
     char FORMFEED = '\f';
     char CR = '\r';
+ 
     
+    char U_007f = '\u007f';
+    char U_0080 = '\u0080';
+    char U_00a0 = '\u00a0';
+    char U_2000 = '\u2000';
+    char U_2100 = '\u2100';
 
-    String NULL = "null";
+
+    public static final String ESCAPED_EOL = String.valueOf(ESCAPE_CHAR+EOL);
+    public static final String ESCAPED_TAB  = String.valueOf(ESCAPE_CHAR+TAB);
+    public static final String ESCAPED_BACKSPACE = String.valueOf(ESCAPE_CHAR+BACKSPACE);
+    public static final String ESCAPED_FORMFEED = String.valueOf(ESCAPE_CHAR+FORMFEED);
+    public static final String ESCAPED_CR = String.valueOf(ESCAPE_CHAR+CR);
+    public static final String ESCAPED_QUOTE = String.valueOf(ESCAPE_CHAR+QUOTE);
+
+    public static final String NULL = "null";
 }
