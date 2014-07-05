@@ -130,6 +130,32 @@ public class BenchmarkBufferRecycleCache {
 	    	buf.releaseBuffer(c1);
 		}
 	
+	@Benchmark
+    public void singleAllocate5xRecycled512kSynchronized(Blackhole bh) throws Exception
+		{
+		    BufferRecycleCache<byte[]> buf = BufferRecycleCache.synchronizedBufferRecycleCache(new ByteBufferRecycleCache(5,10));
+		
+			byte[] c1= buf.getBuffer(1024*512);
+	    	bh.consume(c1);
+	    	buf.releaseBuffer(c1);
+
+	    	c1= buf.getBuffer(1024*512);
+	    	bh.consume(c1);
+	    	buf.releaseBuffer(c1);
+	    	
+	    	c1= buf.getBuffer(1024*512);
+	    	bh.consume(c1);
+	    	buf.releaseBuffer(c1);
+	    	
+	    	c1= buf.getBuffer(1024*512);
+	    	bh.consume(c1);
+	    	buf.releaseBuffer(c1);
+	    	
+	    	c1= buf.getBuffer(1024*512);
+	    	bh.consume(c1);
+	    	buf.releaseBuffer(c1);
+		}
+	
 	
 	
 	@Benchmark

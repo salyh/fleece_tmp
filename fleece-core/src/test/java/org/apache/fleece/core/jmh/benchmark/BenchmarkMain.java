@@ -37,7 +37,7 @@ public class BenchmarkMain {
     public static void main(String[] args) throws Exception {
     	//run(1,1,2,3);
     	run(1,4,3,4);
-    	run(2,4,3,4);
+    	//run(2,4,3,4);
     	//run(2,16,3,5);
     }
 
@@ -61,7 +61,7 @@ public class BenchmarkMain {
 
         new Runner(opt).run();
         
-        
+        /*
         System.out.println("-second-");
         
         opt = new OptionsBuilder()
@@ -80,7 +80,7 @@ public class BenchmarkMain {
         
         .build();
 
-    new Runner(opt).run();
+    new Runner(opt).run();*/
     }
 
     

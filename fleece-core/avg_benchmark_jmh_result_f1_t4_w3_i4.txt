@@ -1,14 +1,23 @@
-Benchmark                                                                       Mode   Samples        Score  Score error    Units
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.allocateBuffersWithRecycleBuffer        avgt         4     4558,666      473,632    us/op
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.allocateBuffersWithoutRecycleBuffer     avgt         4     5988,530      672,938    us/op
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocate10xNative512k             avgt         4      951,446       85,049    us/op
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocate10xRecycled512k           avgt         4      586,370       30,130    us/op
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocate5xNative512k              avgt         4      486,527       34,208    us/op
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocate5xRecycled512k            avgt         4      589,159       73,867    us/op
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative16k                 avgt         4        3,834        1,037    us/op
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative1k                  avgt         4        0,433        0,031    us/op
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative32k                 avgt         4        7,406        0,445    us/op
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative4k                  avgt         4        1,093        0,044    us/op
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative512k                avgt         4      108,400       16,592    us/op
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative64k                 avgt         4       26,568       17,307    us/op
-o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative8k                  avgt         4        2,022        0,370    us/op
+Benchmark                                                                            Mode   Samples        Score  Score error    Units
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.allocateBuffersWithRecycleBuffer             avgt         4     4579,773      358,613    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.allocateBuffersWithoutRecycleBuffer          avgt         4     6719,383     7128,567    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocate10xNative512k                  avgt         4      958,940      119,764    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocate10xRecycled512k                avgt         4      588,549       20,867    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocate5xNative512k                   avgt         4      491,413       57,145    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocate5xRecycled512k                 avgt         4      599,892      103,975    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocate5xRecycled512kSynchronized     avgt         4      596,799       25,726    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative16k                      avgt         4        3,797        0,268    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative1k                       avgt         4        0,436        0,045    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative32k                      avgt         4        9,497        1,294    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative4k                       avgt         4        1,124        0,257    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative512k                     avgt         4      101,976       14,124    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative64k                      avgt         4       25,948        1,980    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCache.singleAllocateNative8k                       avgt         4        2,003        0,149    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCacheState.singleAllocate10xNative512k             avgt         4      960,309       53,698    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCacheState.singleAllocate10xRecycled512k           avgt         4        0,730        0,264    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCacheState.singleAllocate5xNative512k              avgt         4      477,589       13,652    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCacheState.singleAllocate5xRecycled512k            avgt         4        0,357        0,035    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCacheStateSynced.singleAllocate10xNative512k       avgt         4      966,588       73,117    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCacheStateSynced.singleAllocate10xRecycled512k     avgt         4        4,987        0,153    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCacheStateSynced.singleAllocate5xNative512k        avgt         4      477,794       36,361    us/op
+o.a.f.c.j.b.BenchmarkBufferRecycleCacheStateSynced.singleAllocate5xRecycled512k      avgt         4        3,114        1,954    us/op
