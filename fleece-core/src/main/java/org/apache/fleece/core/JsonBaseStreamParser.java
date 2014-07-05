@@ -38,7 +38,7 @@ import javax.management.RuntimeErrorException;
 
 public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAwareJsonParser {
 	
-	private static BufferCache<char[]> VBUFFER_CACHE;
+	//private static BufferCache<char[]> VBUFFER_CACHE;
 	
     //private final ReentrantLock lock = new ReentrantLock();
     protected final static boolean log = false;
@@ -70,7 +70,7 @@ public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAw
 
     protected JsonBaseStreamParser(final int maxStringLength) {
         
-    	if(VBUFFER_CACHE == null)
+    	/*if(VBUFFER_CACHE == null)
     	{
     	VBUFFER_CACHE = new BufferCache<char[]>(
     			maxStringLength) {
@@ -78,10 +78,11 @@ public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAw
     	    protected char[] newValue(final int defaultSize) {
     	        return new char[defaultSize];
     	    }
-    	};}
+    	};}*/
     	
         this.maxStringSize = maxStringLength < 0 ? 8192 : maxStringLength;
-        currentValue = VBUFFER_CACHE.getCache();
+        //currentValue = VBUFFER_CACHE.getCache();
+        currentValue = new char[maxStringLength];
     }
 
     
@@ -773,7 +774,7 @@ public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAw
     @Override
     public void close() {
 
-    	VBUFFER_CACHE.release(currentValue);
+    	//VBUFFER_CACHE.release(currentValue);
     	
         try {
             closeUnderlyingSource();

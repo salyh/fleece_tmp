@@ -10,16 +10,16 @@ import java.nio.charset.Charset;
 
 public class JsonByteBufferStreamParser extends JsonBaseStreamParser {
 
-private static final BufferCache<byte[]> BUFFER_CACHE = new BufferCache<byte[]>(
-        Integer.getInteger("org.apache.fleece.default-char-buffer", 8192) /*BufferedReader.defaultCharBufferSize*/) {
+/*private static final BufferCache<byte[]> BUFFER_CACHE = new BufferCache<byte[]>(
+        Integer.getInteger("org.apache.fleece.default-char-buffer", 8192)) {
     @Override
     protected byte[] newValue(final int defaultSize) {
         return new byte[defaultSize];
     }
-};
+};*/
 
 
-    private final byte[] buffer0 = BUFFER_CACHE.getCache();
+    private final byte[] buffer0 = new byte[Integer.getInteger("org.apache.fleece.default-char-buffer", 8192)];// BUFFER_CACHE.getCache();
     private final Reader inr;
     private final InputStream in;
     private int pointer=-1;
@@ -111,7 +111,7 @@ private static final BufferCache<byte[]> BUFFER_CACHE = new BufferCache<byte[]>(
     @Override
     protected void closeUnderlyingSource() throws IOException {
     	
-    	BUFFER_CACHE.release(buffer0);
+    	//BUFFER_CACHE.release(buffer0);
     	
         if(in!=null)in.close();
         if(inr!=null)in.close();

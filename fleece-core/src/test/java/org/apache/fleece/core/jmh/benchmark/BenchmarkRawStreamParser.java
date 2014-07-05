@@ -171,4 +171,24 @@ o.a.f.c.j.b.BenchmarkRawStreamParser.widget         thrpt         5    47033,145
         bh.consume(parse(new CharArrayReader(Buffers.CHR_GENMEDIUM_BYTES)));
 
     }
+    
+    @Benchmark
+    public void combined_Reader(Blackhole bh) throws Exception {
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_GENMEDIUM_BYTES)));
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_WEBXML_BYTES)));
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_GENMEDIUM_BYTES)));
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_WEBXML_BYTES)));
+        bh.consume(parse(new CharArrayReader(Buffers.CHR_GENMEDIUM_BYTES)));
+        
+    }
+    
+    @Benchmark
+    public void combined(Blackhole bh) throws Exception {
+        bh.consume(parse(new ByteArrayInputStream(Buffers.GENMEDIUM_BYTES)));
+        bh.consume(parse(new ByteArrayInputStream(Buffers.WEBXML_BYTES)));
+        bh.consume(parse(new ByteArrayInputStream(Buffers.GENMEDIUM_BYTES)));
+        bh.consume(parse(new ByteArrayInputStream(Buffers.WEBXML_BYTES)));
+        bh.consume(parse(new ByteArrayInputStream(Buffers.GENMEDIUM_BYTES)));
+        
+    }
 }
