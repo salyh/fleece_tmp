@@ -32,17 +32,19 @@ public class BenchmarkMain {
         Buffers.init();
     }
     
+    private static final String REGEX = ".*BufferRecycle.*";
+    
     public static void main(String[] args) throws Exception {
-    	run(1,1,2,3);
+    	//run(1,1,2,3);
     	run(1,4,3,4);
     	run(2,4,3,4);
-    	run(2,16,3,5);
+    	//run(2,16,3,5);
     }
 
     public static void run(int forks ,int threads,int warmupit,int measureit ) throws Exception {
 
         Options opt = new OptionsBuilder()
-            .include(".*")
+            .include(REGEX)
             .forks(forks)
             .warmupIterations(warmupit)
             .measurementIterations(measureit)
@@ -63,7 +65,7 @@ public class BenchmarkMain {
         System.out.println("-second-");
         
         opt = new OptionsBuilder()
-        .include(".*")
+        .include(REGEX)
         .forks(forks)
         .warmupIterations(warmupit)
         .measurementIterations(measureit)
