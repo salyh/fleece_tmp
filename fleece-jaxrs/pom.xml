@@ -65,6 +65,7 @@
   </dependencies>
 
   <properties>
+    <staging.directory>${project.parent.reporting.outputDirectory}</staging.directory>
     <cxf.version>3.0.0</cxf.version>
   </properties>
 </project>
