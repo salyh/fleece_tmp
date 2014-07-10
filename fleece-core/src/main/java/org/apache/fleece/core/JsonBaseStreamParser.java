@@ -113,11 +113,28 @@ public abstract class JsonBaseStreamParser implements JsonChars,
                 || (value >= 'A' && value <= 'F');
     }
 
-    private JsonLocationImpl createLocation() {
+    protected JsonLocationImpl createLocation() {
         return new JsonLocationImpl(line, column, offset);
     }
 
     private boolean ifConstructingStringValueAdd(char c) throws IOException {
+        
+        if (Character.isHighSurrogate(c)) {
+            if (escaped) {
+                throw new JsonParsingException("character " + (int) c + " cannot be escaped", createLocation());
+            }
+
+            char lowSurrogate = readNextChar();
+
+            if (!Character.isLowSurrogate(lowSurrogate)) {
+                throw new JsonParsingException("unexpected character " + (int) lowSurrogate, createLocation());
+            } else {
+                ifConstructingStringValueAdd(c, false);
+                return ifConstructingStringValueAdd(lowSurrogate, false);
+            }
+        }
+        
+        
         if (escaped) {
 
             if (c == 'u') {

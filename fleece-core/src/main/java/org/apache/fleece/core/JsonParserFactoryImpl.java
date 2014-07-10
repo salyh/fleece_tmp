@@ -18,22 +18,25 @@
  */
 package org.apache.fleece.core;
 
-import javax.json.JsonArray;
-import javax.json.JsonObject;
-import javax.json.stream.JsonParser;
-import javax.json.stream.JsonParserFactory;
 import java.io.InputStream;
 import java.io.Reader;
 import java.io.Serializable;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.Locale;
 import java.util.Map;
+
+import javax.json.JsonArray;
+import javax.json.JsonObject;
+import javax.json.stream.JsonParser;
+import javax.json.stream.JsonParserFactory;
 
 public class JsonParserFactoryImpl implements JsonParserFactory, Serializable {
     public static final String BUFFER_STRATEGY = "org.apache.fleece.buffer-strategy";
     public static final String MAX_STRING_LENGTH = "org.apache.fleece.max-string-length";
     public static final String BUFFER_LENGTH = "org.apache.fleece.default-char-buffer";
+    public static final String DISABLE_UTF8_PARSER = "org.apache.fleece.disable-fast-utf8-parser";
     public static final int DEFAULT_MAX_SIZE = Integer.getInteger(MAX_STRING_LENGTH, 8192);
 
     private final Map<String, ?> config;
@@ -70,15 +73,33 @@ public class JsonParserFactoryImpl implements JsonParserFactory, Serializable {
         return Integer.parseInt(maxStringSize.toString());
     }
 
-    private JsonCharBufferStreamParser getDefaultJsonParserImpl(final InputStream in) {
-        return new JsonCharBufferStreamParser(in, Charset.defaultCharset(), maxSize, bufferProvider);
+    private boolean getBoolean(final String key) {
+        final Object bool = config.get(key);
+        if (bool == null) {
+            return false;
+        } else if (Boolean.class.isInstance(bool)) {
+            return Boolean.class.cast(bool);
+        }
+        return Boolean.parseBoolean(bool.toString());
     }
 
-    private JsonCharBufferStreamParser getDefaultJsonParserImpl(final InputStream in, final Charset charset) {
-        return new JsonCharBufferStreamParser(in, charset, maxSize, bufferProvider);
+    private EscapedStringAwareJsonParser getDefaultJsonParserImpl(final InputStream in) {
+        if (!getBoolean(DISABLE_UTF8_PARSER) && Charset.defaultCharset().equals(StandardCharsets.UTF_8)) {
+            return new JsonFastUTF8ByteBufferStreamParser(in, maxSize, bufferProvider);
+        } else {
+            return new JsonCharBufferStreamParser(in, Charset.defaultCharset(), maxSize, bufferProvider);
+        }
     }
 
-    private JsonCharBufferStreamParser getDefaultJsonParserImpl(final Reader in) {
+    private EscapedStringAwareJsonParser getDefaultJsonParserImpl(final InputStream in, final Charset charset) {
+        if (!getBoolean(DISABLE_UTF8_PARSER) && StandardCharsets.UTF_8.equals(charset)) {
+            return new JsonFastUTF8ByteBufferStreamParser(in, maxSize, bufferProvider);
+        } else {
+            return new JsonCharBufferStreamParser(in, charset, maxSize, bufferProvider);
+        }
+    }
+
+    private EscapedStringAwareJsonParser getDefaultJsonParserImpl(final Reader in) {
         return new JsonCharBufferStreamParser(in, maxSize, bufferProvider);
     }
 
@@ -114,6 +135,10 @@ public class JsonParserFactoryImpl implements JsonParserFactory, Serializable {
 
     public EscapedStringAwareJsonParser createInternalParser(final InputStream in) {
         return getDefaultJsonParserImpl(in);
+    }
+
+    public EscapedStringAwareJsonParser createInternalParser(final InputStream in, final Charset charset) {
+        return getDefaultJsonParserImpl(in, charset);
     }
 
     public EscapedStringAwareJsonParser createInternalParser(final Reader reader) {

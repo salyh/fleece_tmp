@@ -18,15 +18,15 @@
  */
 package org.apache.fleece.core;
 
-import javax.json.JsonReader;
-import javax.json.JsonReaderFactory;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.util.Collections;
 import java.util.Map;
+
+import javax.json.JsonReader;
+import javax.json.JsonReaderFactory;
 
 public class JsonReaderFactoryImpl implements JsonReaderFactory, Serializable {
     private final Map<String, ?> config;
@@ -49,7 +49,7 @@ public class JsonReaderFactoryImpl implements JsonReaderFactory, Serializable {
 
     @Override
     public JsonReader createReader(final InputStream in, final Charset charset) {
-        return createReader(new InputStreamReader(in, charset));
+        return new JsonReaderImpl(parserFactory.createInternalParser(in, charset));
     }
 
     @Override
