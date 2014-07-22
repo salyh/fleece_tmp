@@ -3,11 +3,12 @@ package org.apache.fleece.core;
 import java.io.InputStream;
 import java.io.Reader;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
-public class JsonParserCurrent extends JsonByteBufferStreamParser {
+public class JsonParserCurrent extends JsonFastUTF8ByteBufferStreamParser {
 
     public JsonParserCurrent(Reader reader, int maxStringLength) {
-        super(reader, maxStringLength);
+        super(null,1);
         // TODO Auto-generated constructor stub
     }
 
@@ -17,7 +18,7 @@ public class JsonParserCurrent extends JsonByteBufferStreamParser {
     }
 
     public JsonParserCurrent(InputStream in, Charset charset, int maxStringLength) {
-        super(in, charset, maxStringLength);
+        super(in, maxStringLength);
         // TODO Auto-generated constructor stub
     }
 

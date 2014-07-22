@@ -18,8 +18,14 @@
  */
 package org.apache.fleece.core;
 
+import java.io.ByteArrayInputStream;
+import java.io.StringReader;
+import java.nio.charset.StandardCharsets;
+
 import org.junit.Before;
 import org.junit.Test;
+
+import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 
 import javax.json.Json;
 import javax.json.JsonArray;
@@ -55,6 +61,75 @@ public class JsonReaderImplTest {
         assertEquals(1, array.getInt(0));
         assertEquals(-2, array.getInt(1));
         reader.close();
+    }
+    
+    @Test
+
+    public void special2() {
+
+        final JsonReader reader = Json.createReader(new ByteArrayInputStream("{\"ö\":\"ö\"}".getBytes(StandardCharsets.UTF_8)));
+
+        assertNotNull(reader);
+
+        final JsonObject object = reader.readObject();
+
+        assertNotNull(object);
+
+        assertEquals(1, object.size());
+
+        assertEquals("ö",object.getString("ö")); //c3b6 u+00f6 50102
+        reader.close();
+
+    }
+    
+    @Test
+
+    public void special12() {
+    	
+    	String s = "{\"নa\":\"hallo\u20acö\uffff \u08a5 থ?ß§$%&´'`*+#\"}"; // "{\"ন:4::,[{\u08a5\":\"থii:üäöÖ.,;.-<>!§$%&()=?ß´'`*+#\ua5a5\"}";
+    	System.out.println(s);
+
+        final JsonReader reader = Json.createReader(new ByteArrayInputStream(s.getBytes(StandardCharsets.UTF_8)));
+
+        assertNotNull(reader);
+
+        final JsonObject object = reader.readObject();
+
+        assertNotNull(object);
+
+        assertEquals(1, object.size());
+
+        //\u1d11e
+        assertEquals("hallo\u20acö\uffff \u08a5 থ?ß§$%&´'`*+#",object.getString("নa"));
+
+//        assertEquals("থii:üäöÖ.,;.-<>!§$%&()=?ß´'`*+#\u08a5",object.getString("ন:4::,[{\ua5a5"));
+
+        reader.close();
+
+    }
+    
+    
+public void special123() {
+    	
+    	String s =  "{\"ন:4::,[{\u08a5\":\"থii:üäöÖ.,;.-<>!§$%&()=?ß´'`*+#\ua5a5\"}";
+    	System.out.println(s);
+
+        final JsonReader reader = Json.createReader(new ByteArrayInputStream(s.getBytes(StandardCharsets.UTF_8)));
+
+        assertNotNull(reader);
+
+        final JsonObject object = reader.readObject();
+
+        assertNotNull(object);
+
+        assertEquals(1, object.size());
+
+        //\u1d11e
+
+   assertEquals("থii:üäöÖ.,;.-<>!§$%&()=?ß´'`*+#\u08a5",object.getString("ন:4::,[{\ua5a5"));
+
+        reader.close();
+
     }
     
     
@@ -99,7 +174,7 @@ public class JsonReaderImplTest {
     }
     
     
-    @Test
+   // @Test
     public void citm() {
         final JsonReader reader = Json.createReader(Thread.currentThread().getContextClassLoader().getResourceAsStream("json/citm_catalog.json"));
         assertNotNull(reader);

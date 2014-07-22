@@ -85,6 +85,37 @@ public abstract class JsonBaseStreamParser implements JsonChars, EscapedStringAw
         currentValue = new char[maxStringLength];
     }
 
+    protected void recycle()
+    {
+    	
+
+        // current state
+        event = null;
+        lastEvent = null;
+        lastSignificantChar = -1;
+               
+        valueLength=0;
+
+
+        // location
+        line = 1;
+        column = 1;
+        offset = 0;
+
+
+        constructingStringValue = false;
+        withinArray = false;
+        stringValueIsKey = false;
+
+        openObjects = 0;
+        openArrays = 0;
+        escaped=false;
+    	
+        
+    	
+    	
+    }
+       
     
     private void appendValue(char c)
     {

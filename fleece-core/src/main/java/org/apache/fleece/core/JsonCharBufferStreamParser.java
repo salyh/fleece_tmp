@@ -20,7 +20,7 @@ public class JsonCharBufferStreamParser extends JsonBaseStreamParser {
 
 
     private final char[] buffer0 = new char[Integer.getInteger("org.apache.fleece.default-char-buffer", 8192) ];// BUFFER_CACHE.getCache();
-    private final Reader in;
+    private Reader in;
     private int pointer=-1;
     private int avail;
     private char mark;
@@ -111,5 +111,24 @@ public class JsonCharBufferStreamParser extends JsonBaseStreamParser {
         if(in!=null)in.close();
 
     }
+    
+    public void recycle(final Reader reader)
+    {
+    	in=reader;
+    	recycle();
+    }
+    
+    public void recycle(final InputStream in, final Charset charset)
+    {    	
+    	this.in=new InputStreamReader(in, charset);
+    	recycle();
+    }
+    
+    public void recycle(final InputStream in)
+    {    	
+    	this.in=new InputStreamReader(in);
+    	recycle();
+    }
+    
 
 }
